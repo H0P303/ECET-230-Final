@@ -56,7 +56,7 @@ namespace MeadowComPort
         private St7735 st7735;
         private GraphicsLibrary graphics;
 
-        private int deviceWidth, deviceHeight;
+        private int displayWidth, displayHeight;
         //private Ball ball;
 
         public MeadowApp()
@@ -75,14 +75,70 @@ namespace MeadowComPort
                 displayType: St7735.DisplayType.ST7735R_BlackTab
             );
 
-            deviceWidth = Convert.ToInt32(st7735.Width);
-            deviceHeight = Convert.ToInt32(st7735.Height);
+            displayWidth = Convert.ToInt32(st7735.Width);
+            displayHeight = Convert.ToInt32(st7735.Height);
 
             graphics = new GraphicsLibrary(st7735);
 
+            //DrawShapes();
             Initialize();
             SendLoop();
         }
+
+        //private void DrawShapes()
+        //{
+        //    Random rand = new Random();
+
+        //    graphics.Clear(true);
+
+        //    int radius = 10;
+        //    int originX = displayWidth / 2;
+        //    int originY = displayHeight / 2;
+
+        //    //Draws 4 circles originating from the center of the lcd
+        //    //Each iteration of circle has a larger diamiter.
+        //    for (int i = 1; i < 5; i++)
+        //    {
+        //        graphics.DrawCircle
+        //        (
+        //            centerX: originX,
+        //            centerY: originY,
+        //            radius: radius,
+        //            color: Color.FromRgb(rand.Next(128, 255), rand.Next(128, 255), rand.Next(128, 255))
+        //        );
+        //        graphics.Show();
+        //        radius += 20;
+        //    }
+
+        //    int sideLength = 30;
+
+        //    //Draws 4 different rectangles originating from the center of the lcd
+        //    //Each iteration rectangle has a larger side.
+        //    for (int i = 1; i < 5; i++)
+        //    {
+        //        graphics.DrawRectangle
+        //        (
+        //            x: (displayWidth - sideLength) / 2,
+        //            y: (displayHeight - sideLength) / 2,
+        //            width: sideLength,
+        //            height: sideLength,
+        //            color: Color.FromRgb(rand.Next(128, 255), rand.Next(128, 255), rand.Next(128, 255))
+        //        );
+        //        graphics.Show();
+        //        sideLength += 40;
+        //    }
+        //    graphics.DrawLine(0, displayHeight / 2, displayWidth, displayHeight / 2,
+        //        Color.FromRgb(rand.Next(128, 255), rand.Next(128, 255), rand.Next(128, 255)));
+        //    graphics.DrawLine(displayWidth / 2, 0, displayWidth / 2, displayHeight,
+        //        Color.FromRgb(rand.Next(128, 255), rand.Next(128, 255), rand.Next(128, 255)));
+        //    graphics.DrawLine(0, 0, displayWidth, displayHeight,
+        //        Color.FromRgb(rand.Next(128, 255), rand.Next(128, 255), rand.Next(128, 255)));
+        //    graphics.DrawLine(0, displayHeight, displayWidth, 0,
+        //        Color.FromRgb(rand.Next(128, 255), rand.Next(128, 255), rand.Next(128, 255)));
+        //    graphics.Show();
+
+        //    //Thread.Sleep(5000);
+        //}
 
         private void Initialize()
         {
