@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
+        "projectName": "App",
+        "projectPath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
+        "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Meadow.F7": {
+              "target": "Package",
+              "version": "[0.*, )"
+            },
+            "Meadow.Foundation": {
+              "target": "Package",
+              "version": "[0.*, )"
+            },
+            "Meadow.Foundation.Displays.TftSpi": {
+              "target": "Package",
+              "version": "[0.7.47, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

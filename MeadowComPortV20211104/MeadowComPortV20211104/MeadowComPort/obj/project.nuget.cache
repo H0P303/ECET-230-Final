@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "OwagvL4v4+DaDA7lFTdf2XU9k9VxPOxBwBZUBJWfkwTwDW7e6CQf2GZ+mWRjYyrAMh+yf8v7DtuNYwur0S1xUQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow\\0.28.0\\meadow.0.28.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow.contracts\\0.28.0\\meadow.contracts.0.28.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow.f7\\0.28.0\\meadow.f7.0.28.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow.foundation\\0.30.0\\meadow.foundation.0.30.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow.foundation.displays.graphicslibrary\\0.9.45\\meadow.foundation.displays.graphicslibrary.0.9.45.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow.foundation.displays.tftspi\\0.7.47\\meadow.foundation.displays.tftspi.0.7.47.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\meadow.units\\0.28.0\\meadow.units.0.28.0.nupkg.sha512"
+  ],
+  "logs": []
+}

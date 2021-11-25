@@ -1,0 +1,115 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "App/1.0.0": {
+        "dependencies": {
+          "Meadow.F7": "0.28.0",
+          "Meadow.Foundation": "0.30.0"
+        },
+        "runtime": {
+          "App.dll": {}
+        }
+      },
+      "Meadow/0.28.0": {
+        "dependencies": {
+          "Meadow.Contracts": "0.28.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.dll": {
+            "assemblyVersion": "0.28.0.0",
+            "fileVersion": "0.28.0.0"
+          }
+        }
+      },
+      "Meadow.Contracts/0.28.0": {
+        "dependencies": {
+          "Meadow.Units": "0.28.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.Contracts.dll": {
+            "assemblyVersion": "0.28.0.0",
+            "fileVersion": "0.28.0.0"
+          }
+        }
+      },
+      "Meadow.F7/0.28.0": {
+        "dependencies": {
+          "Meadow": "0.28.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.F7.dll": {
+            "assemblyVersion": "0.28.0.0",
+            "fileVersion": "0.28.0.0"
+          }
+        }
+      },
+      "Meadow.Foundation/0.30.0": {
+        "dependencies": {
+          "Meadow": "0.28.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.Foundation.dll": {
+            "assemblyVersion": "0.30.0.0",
+            "fileVersion": "0.30.0.0"
+          }
+        }
+      },
+      "Meadow.Units/0.28.0": {
+        "runtime": {
+          "lib/netstandard2.1/Meadow.Units.dll": {
+            "assemblyVersion": "0.28.0.0",
+            "fileVersion": "0.28.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Meadow/0.28.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JiMBlO+KPm2kgeG/8nHl3xGH1Qd5xzsmqvB6qPXA9eXGsO+lMg3BOnEBfy3JWLh8D4fa2ss9tATPAzE7mkGzYg==",
+      "path": "meadow/0.28.0",
+      "hashPath": "meadow.0.28.0.nupkg.sha512"
+    },
+    "Meadow.Contracts/0.28.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CxLbdDe7gNbKDYGZ1jyWRZVXYlFRM2Fdb9/pKqDY1vZIiDycl6Jyihf2zCJNcwokOzQ2iXywjS/NV54a6VIKnQ==",
+      "path": "meadow.contracts/0.28.0",
+      "hashPath": "meadow.contracts.0.28.0.nupkg.sha512"
+    },
+    "Meadow.F7/0.28.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/S7em7Urijidxa0EHPQWAiVDuntxVDFPdv5bH2wQ4+0WpahwV1Aa+gJZJpMr0igSJIOEU91kRsnnipv+Dkxr3w==",
+      "path": "meadow.f7/0.28.0",
+      "hashPath": "meadow.f7.0.28.0.nupkg.sha512"
+    },
+    "Meadow.Foundation/0.30.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0L0uXAgsz47c26nPenwqpjJalgMHRcUs7Z8pB4nomq8Jlat7tdrJ19qSgz32kW6SX1jOQT6wnKr6kigT1VvBYA==",
+      "path": "meadow.foundation/0.30.0",
+      "hashPath": "meadow.foundation.0.30.0.nupkg.sha512"
+    },
+    "Meadow.Units/0.28.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EL7aC1MR69iU2IriCRyOwfBG7k280SkFnVbuidczkuTjo/2Gfjh40KpuANmE4oLuwmpvWCq6FO+SI4U4CNzU5w==",
+      "path": "meadow.units/0.28.0",
+      "hashPath": "meadow.units.0.28.0.nupkg.sha512"
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "Meadow/0.28.0": {
+        "type": "package",
+        "dependencies": {
+          "Meadow.Contracts": "0.28.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Meadow.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.dll": {}
+        }
+      },
+      "Meadow.Contracts/0.28.0": {
+        "type": "package",
+        "dependencies": {
+          "Meadow.Units": "0.28.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Meadow.Contracts.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.Contracts.dll": {}
+        }
+      },
+      "Meadow.F7/0.28.0": {
+        "type": "package",
+        "dependencies": {
+          "Meadow": "0.28.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Meadow.F7.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.F7.dll": {}
+        }
+      },
+      "Meadow.Foundation/0.30.0": {
+        "type": "package",
+        "dependencies": {
+          "Meadow": "0.28.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Meadow.Foundation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.Foundation.dll": {}
+        }
+      },
+      "Meadow.Foundation.Displays.GraphicsLibrary/0.9.45": {
+        "type": "package",
+        "dependencies": {
+          "Meadow.Foundation": "0.29.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/GraphicsLibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/GraphicsLibrary.dll": {}
+        }
+      },
+      "Meadow.Foundation.Displays.TftSpi/0.7.47": {
+        "type": "package",
+        "dependencies": {
+          "Meadow.Foundation": "0.29.0",
+          "Meadow.Foundation.Displays.GraphicsLibrary": "0.9.45"
+        },
+        "compile": {
+          "lib/netstandard2.1/TftSpi.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/TftSpi.dll": {}
+        }
+      },
+      "Meadow.Units/0.28.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Meadow.Units.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Meadow.Units.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Meadow/0.28.0": {
+      "sha512": "JiMBlO+KPm2kgeG/8nHl3xGH1Qd5xzsmqvB6qPXA9eXGsO+lMg3BOnEBfy3JWLh8D4fa2ss9tATPAzE7mkGzYg==",
+      "type": "package",
+      "path": "meadow/0.28.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Meadow.dll",
+        "lib/netstandard2.1/Meadow.xml",
+        "meadow.0.28.0.nupkg.sha512",
+        "meadow.nuspec"
+      ]
+    },
+    "Meadow.Contracts/0.28.0": {
+      "sha512": "CxLbdDe7gNbKDYGZ1jyWRZVXYlFRM2Fdb9/pKqDY1vZIiDycl6Jyihf2zCJNcwokOzQ2iXywjS/NV54a6VIKnQ==",
+      "type": "package",
+      "path": "meadow.contracts/0.28.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Meadow.Contracts.dll",
+        "lib/netstandard2.1/Meadow.Contracts.xml",
+        "meadow.contracts.0.28.0.nupkg.sha512",
+        "meadow.contracts.nuspec"
+      ]
+    },
+    "Meadow.F7/0.28.0": {
+      "sha512": "/S7em7Urijidxa0EHPQWAiVDuntxVDFPdv5bH2wQ4+0WpahwV1Aa+gJZJpMr0igSJIOEU91kRsnnipv+Dkxr3w==",
+      "type": "package",
+      "path": "meadow.f7/0.28.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Meadow.F7.dll",
+        "lib/netstandard2.1/Meadow.F7.xml",
+        "meadow.f7.0.28.0.nupkg.sha512",
+        "meadow.f7.nuspec"
+      ]
+    },
+    "Meadow.Foundation/0.30.0": {
+      "sha512": "0L0uXAgsz47c26nPenwqpjJalgMHRcUs7Z8pB4nomq8Jlat7tdrJ19qSgz32kW6SX1jOQT6wnKr6kigT1VvBYA==",
+      "type": "package",
+      "path": "meadow.foundation/0.30.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.1/Meadow.Foundation.dll",
+        "lib/netstandard2.1/Meadow.Foundation.xml",
+        "meadow.foundation.0.30.0.nupkg.sha512",
+        "meadow.foundation.nuspec"
+      ]
+    },
+    "Meadow.Foundation.Displays.GraphicsLibrary/0.9.45": {
+      "sha512": "yxAU7X/TKdrZKPuv0wVXWmFjEpVrHeQz1xJbFieTb5wVIE38P5W/PebQuf2HizTTatAC50BPHK+F/FlGhbebvA==",
+      "type": "package",
+      "path": "meadow.foundation.displays.graphicslibrary/0.9.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.1/GraphicsLibrary.dll",
+        "meadow.foundation.displays.graphicslibrary.0.9.45.nupkg.sha512",
+        "meadow.foundation.displays.graphicslibrary.nuspec"
+      ]
+    },
+    "Meadow.Foundation.Displays.TftSpi/0.7.47": {
+      "sha512": "zYYcUCEwptOhAo+xZST2+urE2AhcT740qHNkmFzrcy1bTnb2qmxYytGDM1luN+l16mjChXd7q/06UEQvEOL1Mw==",
+      "type": "package",
+      "path": "meadow.foundation.displays.tftspi/0.7.47",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.1/TftSpi.dll",
+        "meadow.foundation.displays.tftspi.0.7.47.nupkg.sha512",
+        "meadow.foundation.displays.tftspi.nuspec"
+      ]
+    },
+    "Meadow.Units/0.28.0": {
+      "sha512": "EL7aC1MR69iU2IriCRyOwfBG7k280SkFnVbuidczkuTjo/2Gfjh40KpuANmE4oLuwmpvWCq6FO+SI4U4CNzU5w==",
+      "type": "package",
+      "path": "meadow.units/0.28.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Meadow.Units.dll",
+        "lib/netstandard2.1/Meadow.Units.xml",
+        "meadow.units.0.28.0.nupkg.sha512",
+        "meadow.units.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "Meadow.F7 >= 0.*",
+      "Meadow.Foundation >= 0.*",
+      "Meadow.Foundation.Displays.TftSpi >= 0.7.47"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\alexa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
+      "projectName": "App",
+      "projectPath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
+      "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "dependencies": {
+          "Meadow.F7": {
+            "target": "Package",
+            "version": "[0.*, )"
+          },
+          "Meadow.Foundation": {
+            "target": "Package",
+            "version": "[0.*, )"
+          },
+          "Meadow.Foundation.Displays.TftSpi": {
+            "target": "Package",
+            "version": "[0.7.47, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "NETStandard.Library": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
