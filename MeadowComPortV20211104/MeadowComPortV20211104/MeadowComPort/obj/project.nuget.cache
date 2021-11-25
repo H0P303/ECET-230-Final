@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OwagvL4v4+DaDA7lFTdf2XU9k9VxPOxBwBZUBJWfkwTwDW7e6CQf2GZ+mWRjYyrAMh+yf8v7DtuNYwur0S1xUQ==",
+  "dgSpecHash": "9cKX71DPDxx4c8Ztgf3Uiz5WVcmSdqRxgI17YR8sQSu74SVvDz+KXlYhuV9lXd/kEWbRkk/EnFrMZX86US8psg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
+  "projectFilePath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\ECET-230-Final\\MeadowComPortV20211104\\MeadowComPortV20211104\\MeadowComPort\\MeadowComPort.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexa\\.nuget\\packages\\meadow\\0.28.0\\meadow.0.28.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\meadow.contracts\\0.28.0\\meadow.contracts.0.28.0.nupkg.sha512",
