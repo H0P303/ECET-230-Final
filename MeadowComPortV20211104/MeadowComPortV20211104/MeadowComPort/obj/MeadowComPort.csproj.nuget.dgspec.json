@@ -50,7 +50,7 @@
             },
             "Meadow.Foundation": {
               "target": "Package",
-              "version": "[0.*, )"
+              "version": "[0.29.0, )"
             },
             "Meadow.Foundation.Displays.TftSpi": {
               "target": "Package",

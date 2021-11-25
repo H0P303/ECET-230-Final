@@ -38,10 +38,10 @@
           "lib/netstandard2.1/Meadow.F7.dll": {}
         }
       },
-      "Meadow.Foundation/0.30.0": {
+      "Meadow.Foundation/0.29.0": {
         "type": "package",
         "dependencies": {
-          "Meadow": "0.28.0"
+          "Meadow": "0.27.0"
         },
         "compile": {
           "lib/netstandard2.1/Meadow.Foundation.dll": {}
@@ -126,17 +126,17 @@
         "meadow.f7.nuspec"
       ]
     },
-    "Meadow.Foundation/0.30.0": {
-      "sha512": "0L0uXAgsz47c26nPenwqpjJalgMHRcUs7Z8pB4nomq8Jlat7tdrJ19qSgz32kW6SX1jOQT6wnKr6kigT1VvBYA==",
+    "Meadow.Foundation/0.29.0": {
+      "sha512": "smsD24LKP5TA+DezFeIzxiiQwo1f2bqsd0RVWg0HXff5RJNmqZiOItFpmxFRIXYPkoP8YEmUL8sjcQ9bNhWgMw==",
       "type": "package",
-      "path": "meadow.foundation/0.30.0",
+      "path": "meadow.foundation/0.29.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.1/Meadow.Foundation.dll",
         "lib/netstandard2.1/Meadow.Foundation.xml",
-        "meadow.foundation.0.30.0.nupkg.sha512",
+        "meadow.foundation.0.29.0.nupkg.sha512",
         "meadow.foundation.nuspec"
       ]
     },
@@ -183,7 +183,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "Meadow.F7 >= 0.*",
-      "Meadow.Foundation >= 0.*",
+      "Meadow.Foundation >= 0.29.0",
       "Meadow.Foundation.Displays.TftSpi >= 0.7.47"
     ]
   },
@@ -237,7 +237,7 @@
           },
           "Meadow.Foundation": {
             "target": "Package",
-            "version": "[0.*, )"
+            "version": "[0.29.0, )"
           },
           "Meadow.Foundation.Displays.TftSpi": {
             "target": "Package",

@@ -280,3 +280,21 @@ C:\Users\alexa\Documents\FALL2021\ECET-230\Labs\Lab 8 - USB\MeadowComPortV202111
 C:\Users\alexa\Documents\FALL2021\ECET-230\Labs\Lab 8 - USB\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.csproj.CopyComplete
 C:\Users\alexa\Documents\FALL2021\ECET-230\Labs\Lab 8 - USB\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\App.dll
 C:\Users\alexa\Documents\FALL2021\ECET-230\Labs\Lab 8 - USB\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\App.pdb
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.csproj.AssemblyReference.cache
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.AssemblyInfoInputs.cache
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.AssemblyInfo.cs
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.csproj.CoreCompileInputs.cache
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\App.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\App.pdb
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\App.deps.json
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\App.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\App.pdb
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\Meadow.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\Meadow.Contracts.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\Meadow.F7.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\Meadow.Foundation.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\GraphicsLibrary.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\TftSpi.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\Meadow.Units.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.csproj.CopyComplete

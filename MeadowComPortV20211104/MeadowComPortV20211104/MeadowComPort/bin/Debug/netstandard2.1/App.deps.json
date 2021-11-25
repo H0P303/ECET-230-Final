@@ -10,7 +10,8 @@
       "App/1.0.0": {
         "dependencies": {
           "Meadow.F7": "0.28.0",
-          "Meadow.Foundation": "0.30.0"
+          "Meadow.Foundation": "0.29.0",
+          "Meadow.Foundation.Displays.TftSpi": "0.7.47"
         },
         "runtime": {
           "App.dll": {}
@@ -49,14 +50,37 @@
           }
         }
       },
-      "Meadow.Foundation/0.30.0": {
+      "Meadow.Foundation/0.29.0": {
         "dependencies": {
           "Meadow": "0.28.0"
         },
         "runtime": {
           "lib/netstandard2.1/Meadow.Foundation.dll": {
-            "assemblyVersion": "0.30.0.0",
-            "fileVersion": "0.30.0.0"
+            "assemblyVersion": "0.29.0.0",
+            "fileVersion": "0.29.0.0"
+          }
+        }
+      },
+      "Meadow.Foundation.Displays.GraphicsLibrary/0.9.45": {
+        "dependencies": {
+          "Meadow.Foundation": "0.29.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/GraphicsLibrary.dll": {
+            "assemblyVersion": "0.9.45.0",
+            "fileVersion": "0.9.45.0"
+          }
+        }
+      },
+      "Meadow.Foundation.Displays.TftSpi/0.7.47": {
+        "dependencies": {
+          "Meadow.Foundation": "0.29.0",
+          "Meadow.Foundation.Displays.GraphicsLibrary": "0.9.45"
+        },
+        "runtime": {
+          "lib/netstandard2.1/TftSpi.dll": {
+            "assemblyVersion": "0.7.47.0",
+            "fileVersion": "0.7.47.0"
           }
         }
       },
@@ -97,12 +121,26 @@
       "path": "meadow.f7/0.28.0",
       "hashPath": "meadow.f7.0.28.0.nupkg.sha512"
     },
-    "Meadow.Foundation/0.30.0": {
+    "Meadow.Foundation/0.29.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0L0uXAgsz47c26nPenwqpjJalgMHRcUs7Z8pB4nomq8Jlat7tdrJ19qSgz32kW6SX1jOQT6wnKr6kigT1VvBYA==",
-      "path": "meadow.foundation/0.30.0",
-      "hashPath": "meadow.foundation.0.30.0.nupkg.sha512"
+      "sha512": "sha512-smsD24LKP5TA+DezFeIzxiiQwo1f2bqsd0RVWg0HXff5RJNmqZiOItFpmxFRIXYPkoP8YEmUL8sjcQ9bNhWgMw==",
+      "path": "meadow.foundation/0.29.0",
+      "hashPath": "meadow.foundation.0.29.0.nupkg.sha512"
+    },
+    "Meadow.Foundation.Displays.GraphicsLibrary/0.9.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yxAU7X/TKdrZKPuv0wVXWmFjEpVrHeQz1xJbFieTb5wVIE38P5W/PebQuf2HizTTatAC50BPHK+F/FlGhbebvA==",
+      "path": "meadow.foundation.displays.graphicslibrary/0.9.45",
+      "hashPath": "meadow.foundation.displays.graphicslibrary.0.9.45.nupkg.sha512"
+    },
+    "Meadow.Foundation.Displays.TftSpi/0.7.47": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zYYcUCEwptOhAo+xZST2+urE2AhcT740qHNkmFzrcy1bTnb2qmxYytGDM1luN+l16mjChXd7q/06UEQvEOL1Mw==",
+      "path": "meadow.foundation.displays.tftspi/0.7.47",
+      "hashPath": "meadow.foundation.displays.tftspi.0.7.47.nupkg.sha512"
     },
     "Meadow.Units/0.28.0": {
       "type": "package",

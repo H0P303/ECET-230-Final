@@ -55,10 +55,31 @@ namespace MeadowComPort
 
         private St7735 st7735;
         private GraphicsLibrary graphics;
+
+        private int deviceWidth, deviceHeight;
         //private Ball ball;
 
         public MeadowApp()
         {
+            var config = new SpiClockConfiguration(6000, SpiClockConfiguration.Mode.Mode3);
+
+            //Setup of LCD board used
+            st7735 = new St7735
+            (
+                device: Device,
+                spiBus: Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config),
+                chipSelectPin: Device.Pins.D02,
+                dcPin: Device.Pins.D01,
+                resetPin: Device.Pins.D00,
+                width: 128, height: 160,
+                displayType: St7735.DisplayType.ST7735R_BlackTab
+            );
+
+            deviceWidth = Convert.ToInt32(st7735.Width);
+            deviceHeight = Convert.ToInt32(st7735.Height);
+
+            graphics = new GraphicsLibrary(st7735);
+
             Initialize();
             SendLoop();
         }
