@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r/P78XYBnje5ZgA2q7HQa+dYr2hR3Ex3iTXUUsHqoK4JzwicnsDvgA96olVto6cjJ7OoU4E43AAEXPM0Z0NncQ==",
+  "dgSpecHash": "GUIIdVtWSq6YDtqhV30h32F7KopW5JlgX+IMLw+0OsG2UKW0C8GHWOt3vywVsKTwaljyfpaS/RDtU3Zm99u9+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\Labs\\Lab 9 - Solar\\solarMeadow\\usbMeadow\\MeadowSolar.csproj",
+  "projectFilePath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\FINALS\\ECET-230-Final\\solarMeadow\\usbMeadow\\MeadowSolar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
