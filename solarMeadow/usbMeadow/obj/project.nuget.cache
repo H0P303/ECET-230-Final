@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "r/P78XYBnje5ZgA2q7HQa+dYr2hR3Ex3iTXUUsHqoK4JzwicnsDvgA96olVto6cjJ7OoU4E43AAEXPM0Z0NncQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexa\\Documents\\FALL2021\\ECET-230\\Labs\\Lab 9 - Solar\\solarMeadow\\usbMeadow\\MeadowSolar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0-rc.2.21480.5\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0-rc.2.21480.5\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0-rc.2.21480.5\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0-rc.2.21480.5\\runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0-rc.2.21480.5\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\system.io.ports\\6.0.0-rc.2.21480.5\\system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
