@@ -83,15 +83,6 @@
         "runtime": {
           "lib/netstandard2.1/Meadow.Units.dll": {}
         }
-      },
-      "SimpleJpegDecoder/0.4.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/SimpleJpegDecoder.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/SimpleJpegDecoder.dll": {}
-        }
       }
     }
   },
@@ -187,27 +178,13 @@
         "meadow.units.0.28.0.nupkg.sha512",
         "meadow.units.nuspec"
       ]
-    },
-    "SimpleJpegDecoder/0.4.0": {
-      "sha512": "Vt+UayKv0m3MpEwDY4/l0XKhVDxmyhUroRuMoUAvTY7OEInpWfq8LqKMxMgEL5hkO/A80GlDRgjKuJRyore5vQ==",
-      "type": "package",
-      "path": "simplejpegdecoder/0.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net472/SimpleJpegDecoder.dll",
-        "lib/netstandard2.0/SimpleJpegDecoder.dll",
-        "simplejpegdecoder.0.4.0.nupkg.sha512",
-        "simplejpegdecoder.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "Meadow.F7 >= 0.*",
       "Meadow.Foundation >= 0.29.0",
-      "Meadow.Foundation.Displays.TftSpi >= 0.7.47",
-      "SimpleJpegDecoder >= 0.4.0"
+      "Meadow.Foundation.Displays.TftSpi >= 0.7.47"
     ]
   },
   "packageFolders": {
@@ -265,10 +242,6 @@
           "Meadow.Foundation.Displays.TftSpi": {
             "target": "Package",
             "version": "[0.7.47, )"
-          },
-          "SimpleJpegDecoder": {
-            "target": "Package",
-            "version": "[0.4.0, )"
           }
         },
         "imports": [

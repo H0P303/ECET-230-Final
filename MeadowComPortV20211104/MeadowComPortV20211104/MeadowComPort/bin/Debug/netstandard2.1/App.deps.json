@@ -11,7 +11,8 @@
         "dependencies": {
           "Meadow.F7": "0.28.0",
           "Meadow.Foundation": "0.29.0",
-          "Meadow.Foundation.Displays.TftSpi": "0.7.47"
+          "Meadow.Foundation.Displays.TftSpi": "0.7.47",
+          "SimpleJpegDecoder": "0.4.0"
         },
         "runtime": {
           "App.dll": {}
@@ -91,6 +92,14 @@
             "fileVersion": "0.28.0.0"
           }
         }
+      },
+      "SimpleJpegDecoder/0.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/SimpleJpegDecoder.dll": {
+            "assemblyVersion": "0.4.0.0",
+            "fileVersion": "0.4.0.0"
+          }
+        }
       }
     }
   },
@@ -148,6 +157,13 @@
       "sha512": "sha512-EL7aC1MR69iU2IriCRyOwfBG7k280SkFnVbuidczkuTjo/2Gfjh40KpuANmE4oLuwmpvWCq6FO+SI4U4CNzU5w==",
       "path": "meadow.units/0.28.0",
       "hashPath": "meadow.units.0.28.0.nupkg.sha512"
+    },
+    "SimpleJpegDecoder/0.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vt+UayKv0m3MpEwDY4/l0XKhVDxmyhUroRuMoUAvTY7OEInpWfq8LqKMxMgEL5hkO/A80GlDRgjKuJRyore5vQ==",
+      "path": "simplejpegdecoder/0.4.0",
+      "hashPath": "simplejpegdecoder.0.4.0.nupkg.sha512"
     }
   }
 }

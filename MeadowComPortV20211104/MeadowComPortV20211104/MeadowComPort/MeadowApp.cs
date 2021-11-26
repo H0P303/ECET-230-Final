@@ -10,9 +10,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Meadow.Foundation.Displays.TftSpi;
-using SimpleJpegDecoder;
-using System.IO;
-using System.Drawing;
 
 namespace MeadowComPort
 {
@@ -84,12 +81,10 @@ namespace MeadowComPort
             graphics = new GraphicsLibrary(st7735);
             graphics.Rotation = GraphicsLibrary.RotationType._90Degrees;
 
-            //graphics.CurrentFont = new Font12x20();
-            //graphics.Clear(true);
-            //graphics.DrawText(10, 10, "HELLO", Color.White);
-            //graphics.Show();
-
-            //Thread.Sleep(5000);
+            graphics.CurrentFont = new Font12x20();
+            graphics.Clear(true);
+            graphics.DrawText(10, 10, "HELLO", Color.White);
+            graphics.Show();
 
             //DrawShapes();
             Initialize();

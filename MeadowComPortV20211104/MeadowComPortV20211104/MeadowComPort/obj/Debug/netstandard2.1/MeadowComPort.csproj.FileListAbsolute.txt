@@ -297,3 +297,5 @@ C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV2
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\TftSpi.dll
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\Meadow.Units.dll
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.csproj.CopyComplete
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\bin\Debug\netstandard2.1\SimpleJpegDecoder.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\MeadowComPortV20211104\MeadowComPortV20211104\MeadowComPort\obj\Debug\netstandard2.1\MeadowComPort.csproj.AssemblyReference.cache
