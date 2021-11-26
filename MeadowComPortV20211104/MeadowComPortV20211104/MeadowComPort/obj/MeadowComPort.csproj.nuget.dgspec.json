@@ -55,6 +55,10 @@
             "Meadow.Foundation.Displays.TftSpi": {
               "target": "Package",
               "version": "[0.7.47, )"
+            },
+            "SimpleJpegDecoder": {
+              "target": "Package",
+              "version": "[0.4.0, )"
             }
           },
           "imports": [

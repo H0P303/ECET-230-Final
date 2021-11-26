@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Meadow.Foundation.Displays.TftSpi;
+using SimpleJpegDecoder;
+using System.IO;
+using System.Drawing;
 
 namespace MeadowComPort
 {
@@ -26,8 +29,9 @@ namespace MeadowComPort
         private IAnalogInputPort analogIn04;
         private IAnalogInputPort analogIn05;
 
-        private IDigitalInputPort inputPortD01;
+        //private IDigitalInputPort inputPortD01;
         private IDigitalInputPort inputPortD02;
+
         private IDigitalInputPort inputPortD03;
         private IDigitalInputPort inputPortD04;
         private IDigitalOutputPort outputPortD05;
@@ -57,7 +61,6 @@ namespace MeadowComPort
         private GraphicsLibrary graphics;
 
         private int displayWidth, displayHeight;
-        //private Ball ball;
 
         public MeadowApp()
         {
@@ -79,6 +82,14 @@ namespace MeadowComPort
             displayHeight = Convert.ToInt32(st7735.Height);
 
             graphics = new GraphicsLibrary(st7735);
+            graphics.Rotation = GraphicsLibrary.RotationType._90Degrees;
+
+            //graphics.CurrentFont = new Font12x20();
+            //graphics.Clear(true);
+            //graphics.DrawText(10, 10, "HELLO", Color.White);
+            //graphics.Show();
+
+            //Thread.Sleep(5000);
 
             //DrawShapes();
             Initialize();
@@ -157,7 +168,7 @@ namespace MeadowComPort
             analogIn03 = Device.CreateAnalogInputPort(Device.Pins.A03);
             analogIn04 = Device.CreateAnalogInputPort(Device.Pins.A04);
             analogIn05 = Device.CreateAnalogInputPort(Device.Pins.A05);
-            inputPortD01 = Device.CreateDigitalInputPort(Device.Pins.D01);
+            //inputPortD01 = Device.CreateDigitalInputPort(Device.Pins.D01);
             inputPortD02 = Device.CreateDigitalInputPort(Device.Pins.D02);
             inputPortD03 = Device.CreateDigitalInputPort(Device.Pins.D03);
             inputPortD04 = Device.CreateDigitalInputPort(Device.Pins.D04);
@@ -303,7 +314,7 @@ namespace MeadowComPort
 
                     case 2:
                         bool[] currentState = new bool[4];
-                        currentState[0] = inputPortD01.State;
+                        //currentState[0] = inputPortD01.State;
                         currentState[1] = inputPortD02.State;
                         currentState[2] = inputPortD03.State;
                         currentState[3] = inputPortD04.State;
