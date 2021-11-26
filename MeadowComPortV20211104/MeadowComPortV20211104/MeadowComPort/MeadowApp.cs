@@ -79,16 +79,22 @@ namespace MeadowComPort
             displayHeight = Convert.ToInt32(st7735.Height);
 
             graphics = new GraphicsLibrary(st7735);
-            graphics.Rotation = GraphicsLibrary.RotationType._90Degrees;
 
-            graphics.CurrentFont = new Font12x20();
-            graphics.Clear(true);
-            graphics.DrawText(10, 10, "HELLO", Color.White);
-            graphics.Show();
-
+            Display_Init();
             //DrawShapes();
             Initialize();
             SendLoop();
+        }
+
+        private void Display_Init()
+        {
+            graphics.Rotation = GraphicsLibrary.RotationType._90Degrees;    //Fixes Orientation for display
+
+            graphics.CurrentFont = new Font12x20(); //Sets font
+            graphics.Clear(true);   //Clears display
+            graphics.DrawRectangle(0, 0, 160, 128, Color.White, true);  //Sets background color
+            graphics.DrawText(5, 5, "HELLO", Color.Orange);    //Draws text
+            graphics.Show();    //Updates display
         }
 
         //private void DrawShapes()

@@ -9,6 +9,5 @@
     <PackageReference Include="Meadow.F7" Version="0.*" />
     <PackageReference Include="Meadow.Foundation" Version="0.29.0" />
     <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.47" />
-    <PackageReference Include="SimpleJpegDecoder" Version="0.4.0" />
   </ItemGroup>
 </Project>
