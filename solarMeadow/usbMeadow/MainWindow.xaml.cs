@@ -1,5 +1,8 @@
 ﻿using MeadowSolar;
+using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.IO.Ports;
 using System.Text;
 using System.Windows;
@@ -22,6 +25,7 @@ namespace usbMeadow
         private int newPacketNumber = 0, checkSumError = 0, oldPacketNumber = -1, packetRollover = 0, lostPacketCount = 0, CheckSum;
 
         private StringBuilder stringBuilderSend = new StringBuilder("###1111196");
+        private JsonWriter writer;
 
         private SolarCalc solarCalc = new SolarCalc();
 
@@ -224,7 +228,26 @@ namespace usbMeadow
 
         private void saveToJSON()
         {
-            throw new NotImplementedException();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            //saveFileDialog1.Filter = "isf files (*.isf)|*.isf";
+            //https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/dd459587(v=vs.95)
+            saveFileDialog1.Filter = "JSON Files (*.json)|*.json";
+
+            if (saveFileDialog1.ShowDialog() == true)
+            {
+                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
+                //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
+                //StreamWriter logFile = File.CreateText($"{fs}logFile.json"); //Creates LogFile
+                //logFile.AutoFlush = true;
+
+                //writer = new JsonTextWriter(logFile);
+                //writer.Formatting = Formatting.Indented;
+                //writer.WriteStartObject();
+                //writer.WritePropertyName("Packets");
+                //writer.WriteStartArray();
+                //writer.WriteEndObject();
+                fs.Close();
+            }
         }
 
         /// <summary>
