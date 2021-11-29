@@ -1,41 +1,47 @@
 ﻿<Window x:Class="usbMeadow.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:usbMeadow"
         mc:Ignorable="d"
         Title="MainWindow" Height="530" Width="800">
     <StackPanel Orientation="Horizontal">
         <StackPanel>
-            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Height="50" Width="Auto">
-                <Button Margin="0,0,10,0" x:Name="btnOpenClose" Height="25" Width="50" HorizontalAlignment="Left" Content="Open" Click="btnOpenClose_Click" />
-                <Button x:Name="btnClear" Content="Clear" Height="25" Width="50" Click="btnClear_Click" HorizontalAlignment="Left" Margin="0,0,10,0" />
-                <ComboBox x:Name="comboBox1" Height="25" Width="75" VerticalContentAlignment="Center" MouseEnter="comboBox1_MouseEnter" />
-            </StackPanel>
-            <StackPanel  Width="auto" Orientation="Horizontal">
-                <Label Content="Solar Voltage" Width="90" />
-                <TextBox x:Name="txtSolarVoltage" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Width="auto" Orientation="Horizontal">
-                <Label Content="Battery Voltage" Width="90" />
-                <TextBox x:Name="txtBatteryVoltage" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Width="auto" Orientation="Horizontal">
-                <Label Content="Battery Current" Width="90" />
-                <TextBox x:Name="txtBatteryCurrent" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Width="auto" Orientation="Horizontal">
-                <Label Content="LED 1 Current" Width="90" />
-                <TextBox x:Name="txtLED1Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Width="auto" Orientation="Horizontal">
-                <Label Content="LED 2 Current" Width="90" />
-                <TextBox x:Name="txtLED2Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Width="auto" Orientation="Horizontal">
-                <Label Content="LED 3 Current" Width="90" />
-                <TextBox x:Name="txtLED3Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+            <StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Height="50" Width="Auto">
+                    <Button Margin="0,0,10,0" x:Name="btnOpenClose" Height="25" Width="50" HorizontalAlignment="Left" Content="Open" Click="btnOpenClose_Click" />
+                    <Button x:Name="btnClear" Content="Clear" Height="25" Width="50" Click="btnClear_Click" HorizontalAlignment="Left" Margin="0,0,10,0" />
+                    <ComboBox x:Name="comboBox1" Height="25" Width="75" VerticalContentAlignment="Center" MouseEnter="comboBox1_MouseEnter" />
+                </StackPanel>
+                <StackPanel  Width="auto" Orientation="Horizontal">
+                    <Label Content="Solar Voltage" Width="90" />
+                    <TextBox x:Name="txtSolarVoltage" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+                </StackPanel>
+                <StackPanel Width="auto" Orientation="Horizontal">
+                    <Label Content="Battery Voltage" Width="90" />
+                    <TextBox x:Name="txtBatteryVoltage" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+                </StackPanel>
+                <StackPanel Width="auto" Orientation="Horizontal">
+                    <Label Content="Battery Current" Width="90" />
+                    <TextBox x:Name="txtBatteryCurrent" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+                </StackPanel>
+                <StackPanel Width="auto" Orientation="Horizontal">
+                    <Label Content="LED 1 Current" Width="90" />
+                    <TextBox x:Name="txtLED1Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+                </StackPanel>
+                <StackPanel Width="auto" Orientation="Horizontal">
+                    <Label Content="LED 2 Current" Width="90" />
+                    <TextBox x:Name="txtLED2Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+                </StackPanel>
+                <StackPanel Width="auto" Orientation="Horizontal">
+                    <Label Content="LED 3 Current" Width="90" />
+                    <TextBox x:Name="txtLED3Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Button Content="Save To File" Height="25" Width="75" x:Name="btnSaveFile" Click="btnSaveFile_Click" />
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 

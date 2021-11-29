@@ -217,6 +217,16 @@ namespace usbMeadow
             ButtonClicked(3);
         }
 
+        private void btnSaveFile_Click(object sender, RoutedEventArgs e)
+        {
+            saveToJSON();
+        }
+
+        private void saveToJSON()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// checks which button was clicked and alters the stringbuilder[i] for the specific button clicked.
         /// </summary>
