@@ -56,6 +56,9 @@ namespace MeadowComPort
 
         private St7735 st7735;
         private GraphicsLibrary graphics;
+        private Grapher grapher;
+        private int xStart = 2, yStart = 25, xSize = 156, ySize = 100;
+        private Color bgColor = Color.Black, fgndColor = Color.Red;
 
         private int displayWidth, displayHeight;
 
@@ -79,7 +82,7 @@ namespace MeadowComPort
             displayHeight = Convert.ToInt32(st7735.Height);
 
             graphics = new GraphicsLibrary(st7735);
-
+            grapher = new Grapher(xStart, yStart, xSize, ySize, bgColor, fgndColor);
             Display_Init();
             //DrawShapes();
             Initialize();
@@ -93,7 +96,8 @@ namespace MeadowComPort
             graphics.CurrentFont = new Font12x20(); //Sets font
             graphics.Clear(true);   //Clears display
             graphics.DrawRectangle(0, 0, 160, 128, Color.White, true);  //Sets background color
-            graphics.DrawText(5, 5, "HELLO", Color.Orange);    //Draws text
+            graphics.DrawText(5, 5, "Data", Color.Orange);    //Draws text
+            graphics.DrawRectangle(grapher.xStart, grapher.yStart, grapher.xSize, grapher.ySize, grapher.bgColor, true);
             graphics.Show();    //Updates display
         }
 

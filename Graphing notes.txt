@@ -1,0 +1,7 @@
+
+
+Variables
+
+Y-Value (From parsed data 0-3300) Get; Set;
+X-Value (From packet number (0-999) Get;
+
