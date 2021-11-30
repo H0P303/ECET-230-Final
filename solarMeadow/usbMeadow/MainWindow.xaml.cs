@@ -230,24 +230,17 @@ namespace usbMeadow
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             //saveFileDialog1.Filter = "isf files (*.isf)|*.isf";
-            //https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/dd459587(v=vs.95)
-            saveFileDialog1.Filter = "JSON Files (*.json)|*.json";
+            
+            //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
+                StreamWriter logFile = File.CreateText("logFile.json"); //Creates LogFile
+                logFile.AutoFlush = true;
 
-            if (saveFileDialog1.ShowDialog() == true)
-            {
-                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
-                //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
-                //StreamWriter logFile = File.CreateText($"{fs}logFile.json"); //Creates LogFile
-                //logFile.AutoFlush = true;
-
-                //writer = new JsonTextWriter(logFile);
-                //writer.Formatting = Formatting.Indented;
-                //writer.WriteStartObject();
-                //writer.WritePropertyName("Packets");
-                //writer.WriteStartArray();
-                //writer.WriteEndObject();
-                fs.Close();
-            }
+                writer = new JsonTextWriter(logFile);
+                writer.Formatting = Formatting.Indented;
+                writer.WriteStartObject();
+                writer.WritePropertyName("Packets");
+                writer.WriteStartArray();
+                writer.WriteEndObject();
         }
 
         /// <summary>
