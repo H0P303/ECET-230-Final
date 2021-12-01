@@ -39,7 +39,7 @@
                 </StackPanel>
                 <StackPanel Margin="0,10,0,0">
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <Button Content="Save To File" Height="25" Width="75" x:Name="btnSaveFile" Click="btnSaveFile_Click" />
+                        <Button Content="Save To File" Height="25" Width="75" x:Name="btnSaveFile" Click="btnSaveFile_Click" ToolTip="Saves current session to file" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

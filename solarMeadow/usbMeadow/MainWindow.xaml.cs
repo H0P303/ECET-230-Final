@@ -242,6 +242,7 @@ namespace usbMeadow
                 writer.WriteStartObject();
                 writer.WritePropertyName("Packets");
                 writer.WriteStartArray();
+                writer.WriteEndArray();
                 writer.WriteEndObject();
                 writer.Close();
             }
