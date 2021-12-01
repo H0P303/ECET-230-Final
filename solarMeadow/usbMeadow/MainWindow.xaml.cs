@@ -229,10 +229,12 @@ namespace usbMeadow
         private void saveToJSON()
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            //saveFileDialog1.Filter = "isf files (*.isf)|*.isf";
-            
-            //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
-                StreamWriter logFile = File.CreateText("logFile.json"); //Creates LogFile
+            saveFileDialog1.Filter = "JSON File (*.json)|*.json";
+
+            if (saveFileDialog1.ShowDialog() == true)
+            {
+                //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
+                StreamWriter logFile = File.CreateText(saveFileDialog1.FileName); //Creates LogFile
                 logFile.AutoFlush = true;
 
                 writer = new JsonTextWriter(logFile);
@@ -241,6 +243,8 @@ namespace usbMeadow
                 writer.WritePropertyName("Packets");
                 writer.WriteStartArray();
                 writer.WriteEndObject();
+                writer.Close();
+            }
         }
 
         /// <summary>
