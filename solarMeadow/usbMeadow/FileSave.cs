@@ -34,23 +34,28 @@ namespace MeadowSolar
 
         public void parser(string newPacket)
         {
+            int yo = Convert.ToInt32(newPacket.Substring(3, 3));
             for (int i = 0; i < 6; i++)
             {
                 //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
                 analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
-                saver(analogVoltage);
+                saver(analogVoltage, yo);
             }
         }
 
-        private void saver(double[] analogV)
+        //https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
+        private void saver(double[] analogV, int ye)
         {
+            writer.WriteStartObject();
+            //writer.WritePropertyName($"paket{ye}");
+            //writer.WriteStartArray();
+
             for (int i = 0; i < 6; i++)
             {
-                writer.WriteStartObject();
                 writer.WritePropertyName($"AnalogValue{i}");
                 writer.WriteValue(analogV[i]);
-                writer.WriteEndObject();
             }
+            writer.WriteEndObject();
         }
     }
 }
