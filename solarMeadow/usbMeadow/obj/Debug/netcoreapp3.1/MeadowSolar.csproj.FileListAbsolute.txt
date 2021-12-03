@@ -53,7 +53,6 @@ C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usb
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
-C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar.csproj.AssemblyReference.cache
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar_MarkupCompile.cache
@@ -68,3 +67,4 @@ C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usb
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar.pdb
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar.genruntimeconfig.cache
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar.csproj.AssemblyReference.cache

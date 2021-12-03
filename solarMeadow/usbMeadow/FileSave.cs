@@ -1,57 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Diagnostics;
 
 namespace MeadowSolar
 {
     internal class FileSave
     {
-        //Average calc variables
-        private static double ResitorValue;
+        public JsonWriter writer;
 
+        public double[] data { get; set; }
         public double[] analogVoltage = new double[6];
-        private const int numberOfSamples = 5;
-        private static int currentIndex = 0;
 
-        //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/multidimensional-arrays
-        private double[,] slidingWindowVoltage = new double[6, numberOfSamples];
+        public void saveToJson()
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JSON File (*.json)|*.json";
 
-        /// <summary>
-        /// Parses solar data received from serial data
-        /// </summary>
-        /// <param name="newPacket"></param>
-        public void ParseSolarData(string newPacket)
+            if (saveFileDialog1.ShowDialog() == true)
+            {
+                //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
+                StreamWriter logFile = File.CreateText(saveFileDialog1.FileName); //Creates LogFile
+                logFile.AutoFlush = true;
+
+                writer = new JsonTextWriter(logFile);
+                writer.Formatting = Formatting.Indented;
+                writer.WriteStartObject();
+                writer.WritePropertyName("Packets");
+                writer.WriteStartArray();
+            }
+        }
+
+        public void parser(string newPacket)
         {
             for (int i = 0; i < 6; i++)
             {
                 //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
                 analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
-                analogVoltage[i] = averageVoltage(analogVoltage[i], i); //Adds voltage reading to an incrementing location inside of 2d array
+                saver(analogVoltage);
             }
         }
 
-        private double averageVoltage(double voltageToAverage, int indexOfAnalog)
+        private void saver(double[] analogV)
         {
-            double sum;
-            if (currentIndex >= numberOfSamples)
+            for (int i = 0; i < 6; i++)
             {
-                currentIndex = 0;
+                writer.WriteStartObject();
+                writer.WritePropertyName($"AnalogValue{i}");
+                writer.WriteValue(analogV[i]);
+                writer.WriteEndObject();
             }
-
-            slidingWindowVoltage[indexOfAnalog, currentIndex] = voltageToAverage;
-            sum = 0;
-
-            for (int i = 0; i < numberOfSamples; i++)
-            {
-                sum += slidingWindowVoltage[indexOfAnalog, i];
-            }
-
-            if (indexOfAnalog == numberOfSamples)
-            {
-                currentIndex++;
-            }
-
-            return sum / numberOfSamples;
         }
     }
 }

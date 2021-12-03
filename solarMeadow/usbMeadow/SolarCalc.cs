@@ -29,6 +29,7 @@ namespace MeadowSolar
                 //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
                 analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
                 analogVoltage[i] = averageVoltage(analogVoltage[i], i); //Adds voltage reading to an incrementing location inside of 2d array
+                                                                        //Console.WriteLine(analogVoltage[i]);
             }
         }
 

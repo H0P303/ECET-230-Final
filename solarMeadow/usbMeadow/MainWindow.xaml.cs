@@ -23,9 +23,10 @@ namespace usbMeadow
         private string text;
         private SerialPort serialPort = new SerialPort();
         private int newPacketNumber = 0, checkSumError = 0, oldPacketNumber = -1, packetRollover = 0, lostPacketCount = 0, CheckSum;
+        private bool isSaveLocationSelected = false;
 
         private StringBuilder stringBuilderSend = new StringBuilder("###1111196");
-        private JsonWriter writer;
+        private FileSave fileSave = new FileSave();
 
         private SolarCalc solarCalc = new SolarCalc();
 
@@ -132,6 +133,7 @@ namespace usbMeadow
                     if (recCheckSum == calChkSum)   //if checksum is correct and matching
                     {
                         DisplaySolarData(newPacket);    //use packet data for solar
+                        fileSave.parser(newPacket);
                     }
                     else
                     {   //if not matching ++ the checksum error count
@@ -223,29 +225,8 @@ namespace usbMeadow
 
         private void btnSaveFile_Click(object sender, RoutedEventArgs e)
         {
-            saveToJSON();
-        }
-
-        private void saveToJSON()
-        {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "JSON File (*.json)|*.json";
-
-            if (saveFileDialog1.ShowDialog() == true)
-            {
-                //https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
-                StreamWriter logFile = File.CreateText(saveFileDialog1.FileName); //Creates LogFile
-                logFile.AutoFlush = true;
-
-                writer = new JsonTextWriter(logFile);
-                writer.Formatting = Formatting.Indented;
-                writer.WriteStartObject();
-                writer.WritePropertyName("Packets");
-                writer.WriteStartArray();
-                writer.WriteEndArray();
-                writer.WriteEndObject();
-                writer.Close();
-            }
+            isSaveLocationSelected = true;
+            fileSave.saveToJson();
         }
 
         /// <summary>
@@ -284,15 +265,26 @@ namespace usbMeadow
 
         private void btnOpenClose_Click(object sender, RoutedEventArgs e)
         {
-            if (!bPortOpen)
+            if (isSaveLocationSelected == true)
             {
-                serialPort.PortName = comboBox1.Text;
-                serialPort.Open();
-                btnOpenClose.Content = "Close";
-                bPortOpen = true;
+                if (!bPortOpen)
+                {
+                    serialPort.PortName = comboBox1.Text;
+                    serialPort.Open();
+                    btnOpenClose.Content = "Close";
+                    bPortOpen = true;
+                }
+                else
+                {
+                    serialPort.Close();
+                    btnOpenClose.Content = "Open";
+                    bPortOpen = false;
+                    isSaveLocationSelected = false;
+                }
             }
             else
             {
+                MessageBox.Show("Select location to save data to", "Select save location", MessageBoxButton.OK);
                 serialPort.Close();
                 btnOpenClose.Content = "Open";
                 bPortOpen = false;
