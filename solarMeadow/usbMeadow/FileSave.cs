@@ -46,15 +46,17 @@ namespace MeadowSolar
         //https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
         private void saver(double[] analogV, int ye)
         {
-            writer.WriteStartObject();
+            //writer.WriteStartObject();
             //writer.WritePropertyName($"paket{ye}");
             //writer.WriteStartArray();
 
+            writer.WriteStartObject();
             for (int i = 0; i < 6; i++)
             {
                 writer.WritePropertyName($"AnalogValue{i}");
                 writer.WriteValue(analogV[i]);
             }
+            //writer.WriteEnd();
             writer.WriteEndObject();
         }
     }
