@@ -51,12 +51,18 @@ namespace MeadowSolar
             //writer.WriteStartArray();
 
             writer.WriteStartObject();
+            writer.WritePropertyName($"Paket nr: {ye}");
+            writer.WriteStartArray();
             for (int i = 0; i < 6; i++)
             {
+                writer.WriteStartObject();
                 writer.WritePropertyName($"AnalogValue{i}");
                 writer.WriteValue(analogV[i]);
+                writer.WriteEndObject();
             }
             //writer.WriteEnd();
+
+            writer.WriteEndArray();
             writer.WriteEndObject();
         }
     }

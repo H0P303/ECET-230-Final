@@ -56,7 +56,7 @@ namespace usbMeadow
         {
             string[] ports = SerialPort.GetPortNames();
             comboBox1.ItemsSource = ports;
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 1;
         }
 
         /// <summary>
