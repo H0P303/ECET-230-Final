@@ -229,6 +229,12 @@ namespace usbMeadow
             fileSave.saveToJson();
         }
 
+        private void OpenFileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            jsonFileWindow FileWindow = new jsonFileWindow();
+            FileWindow.Show();
+        }
+
         /// <summary>
         /// checks which button was clicked and alters the stringbuilder[i] for the specific button clicked.
         /// </summary>
