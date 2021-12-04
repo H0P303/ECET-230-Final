@@ -11,7 +11,7 @@
 ##TODO:
  
 	DataLogging:
-		Add File Save -JSON FORMAT /check
+		~~Add File Save -JSON FORMAT~~
 	LCD Graphing:
 		Add GUI element for on/off graph
 
