@@ -1,22 +1,22 @@
 # ECET-230-Final
  Final Project for ECET-230-2021
 
- NuGet Package requirements:
+##NuGet Package requirements:
 
 	Meadow.F7 ---Version 0.28
  	Meadow.Foundation ---Version 0.29
 	Meadow.Foundation.Displays.TftSpi ---Version 0.47
 
 
- TODO:
+##TODO:
  
 	DataLogging:
-		Add File Save -JSON FORMAT
+		Add File Save -JSON FORMAT /check
 	LCD Graphing:
 		Add GUI element for on/off graph
 
 
-Planned Features:
+##Planned Features:
 
 	File save,
 	Graphing
