@@ -38,8 +38,8 @@
                     <TextBox x:Name="txtLED3Current" Width="80" Height="25" VerticalAlignment="top" IsEnabled="False" />
                 </StackPanel>
                 <StackPanel Margin="0,10,0,0">
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <Button Content="Save To File" Height="25" Width="75" x:Name="btnSaveFile" Click="btnSaveFile_Click" ToolTip="Saves current session to file" />
+                    <StackPanel HorizontalAlignment="center" Orientation="Horizontal">
+                        <Button Content="File Save Location" Height="25" Width="110" x:Name="btnSaveFile" Click="btnSaveFile_Click" ToolTip="Selects file location for current session file" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
