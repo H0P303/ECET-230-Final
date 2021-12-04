@@ -39,8 +39,8 @@ namespace MeadowSolar
             {
                 //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
                 analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
-                saver(analogVoltage, yo);
             }
+            saver(analogVoltage, yo);
         }
 
         //https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
