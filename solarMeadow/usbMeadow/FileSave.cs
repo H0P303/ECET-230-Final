@@ -60,7 +60,7 @@ namespace MeadowSolar
         /// <summary>
         /// https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
         /// Writes a new object for each packet that contains the read analog value
-        /// for the 6 analog inputs on the meadow board.
+        /// for the 6 analog inputs on the meadow board as well as voltages and currents
         /// </summary>
         /// <param name="analogV"></param>  //Value of the analog reading
         /// <param name="ye"></param>   //packetNR
@@ -80,8 +80,19 @@ namespace MeadowSolar
                 writer.WriteComment(analogPins[i]);
                 //writer.WriteEndObject();
             }
-            writer.WritePropertyName($"Battery Voltage");
+            writer.WritePropertyName("SolarVoltage");
+            writer.WriteValue(solarCalc.GetVoltage(solarCalc.analogVoltage[3]));
+            writer.WritePropertyName("BatteryVoltage");
             writer.WriteValue(solarCalc.GetVoltage(solarCalc.analogVoltage[4]));
+            writer.WritePropertyName("BatteryCurrent");
+            writer.WriteValue(solarCalc.GetCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[4]));
+            writer.WritePropertyName("LED1-Current");
+            writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[2]));
+            writer.WritePropertyName("LED2-Current");
+            writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[1]));
+            writer.WritePropertyName("LED3-Current");
+            writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[0]));
+
             writer.WriteEndObject();
             writer.WriteEndArray();
             writer.WriteEndObject();
