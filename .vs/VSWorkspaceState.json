@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\solarMeadow",
-    "\\solarMeadow\\usbMeadow"
+    ""
   ],
-  "SelectedNode": "\\solarMeadow\\usbMeadow\\MainWindow.xaml.cs",
+  "SelectedNode": "\\MeadowSolar.sln",
   "PreviewInSolutionExplorer": false
 }

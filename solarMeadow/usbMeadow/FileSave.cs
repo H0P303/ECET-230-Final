@@ -10,8 +10,11 @@ namespace MeadowSolar
     {
         public JsonWriter writer;
 
+        private SolarCalc solarCalc = new SolarCalc();
+
         public double[] data { get; set; }
         public double[] analogVoltage = new double[6];
+        private string[] analogPins = { "LED3", "LED2", "LED1", "Solar Voltage", "Battery Voltage", "\"Reference Voltage\"" };
 
         /// <summary>
         /// Opens savefile dialog allowing user to select save location.
@@ -37,18 +40,20 @@ namespace MeadowSolar
         }
 
         /// <summary>
-        /// Parses analog value from received paket
+        /// Parses analog value from received packet
         /// </summary>
         /// <param name="newPacket"></param>
         public void parser(string newPacket)
         {
-            int paketNR = Convert.ToInt32(newPacket.Substring(3, 3));
-            for (int i = 0; i < 6; i++)
-            {
-                //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
-                analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
-            }
-            saver(analogVoltage, paketNR);
+            int packetNR = Convert.ToInt32(newPacket.Substring(3, 3));
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
+            //    analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
+            //    analogVoltage[i] = solarCalc.averageVoltage(analogVoltage[i], i); //Adds voltage reading to an incrementing location inside of 2d array
+            //}
+
+            saver(solarCalc.ParseSolarData(newPacket), packetNR);
         }
 
         //https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
@@ -58,21 +63,25 @@ namespace MeadowSolar
         /// for the 6 analog inputs on the meadow board.
         /// </summary>
         /// <param name="analogV"></param>  //Value of the analog reading
-        /// <param name="ye"></param>   //PaketNR
-        private void saver(double[] analogV, int paketNR)
+        /// <param name="ye"></param>   //packetNR
+        private void saver(double[] analogV, int packetNR)
         {
             writer.WriteStartObject();
-            writer.WritePropertyName($"Paket nr: {paketNR}");
+            writer.WritePropertyName($"packet nr: {packetNR}");
             writer.WriteStartArray();
             writer.WriteStartObject();
-            //Loops through each analog value inside paket
+
+            //Loops through each analog value inside packet
             for (int i = 0; i < 6; i++)
             {
                 //writer.WriteStartObject();
                 writer.WritePropertyName($"AnalogValue{i}");
                 writer.WriteValue(analogV[i]);
+                writer.WriteComment(analogPins[i]);
                 //writer.WriteEndObject();
             }
+            writer.WritePropertyName($"Battery Voltage");
+            writer.WriteValue(solarCalc.GetVoltage(solarCalc.analogVoltage[4]));
             writer.WriteEndObject();
             writer.WriteEndArray();
             writer.WriteEndObject();
