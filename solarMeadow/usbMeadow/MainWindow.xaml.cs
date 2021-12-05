@@ -27,8 +27,8 @@ namespace usbMeadow
 
         private StringBuilder stringBuilderSend = new StringBuilder("###1111196");
         private FileSave fileSave = new FileSave();
-
         private SolarCalc solarCalc = new SolarCalc();
+        private FileWindowHandler fileWindowHandler = new FileWindowHandler();
 
         public MainWindow()
         {
@@ -233,6 +233,8 @@ namespace usbMeadow
         {
             jsonFileWindow FileWindow = new jsonFileWindow();
             FileWindow.Show();
+
+            //fileWindowHandler.OpenWindow();
         }
 
         /// <summary>
