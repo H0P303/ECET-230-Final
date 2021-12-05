@@ -33,7 +33,8 @@ namespace MeadowSolar
 
                 writer = new JsonTextWriter(logFile);
                 writer.Formatting = Formatting.Indented;
-                writer.WriteStartObject();
+                writer.WriteStartArray();
+                //writer.WriteStartObject();
                 //writer.WritePropertyName("Packets");
                 //writer.WriteStartArray();
             }
@@ -60,8 +61,10 @@ namespace MeadowSolar
         /// <param name="ye"></param>   //packetNR
         private void saver(double[] analogV, int packetNR)
         {
-            writer.WritePropertyName($"Packet {packetNR}");
-            writer.WriteStartArray();
+            //writer.WritePropertyName($"Packet {packetNR}");
+            writer.WriteStartObject();
+            writer.WritePropertyName("Packet");
+            //writer.WriteStartArray();
             writer.WriteStartObject();
             writer.WritePropertyName("PacketNR");
             writer.WriteValue(packetNR);
@@ -87,7 +90,8 @@ namespace MeadowSolar
             writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[0]));
 
             writer.WriteEndObject();
-            writer.WriteEndArray();
+            writer.WriteEndObject();
+            //writer.WriteEndArray();
         }
 
         /// <summary>
@@ -96,8 +100,8 @@ namespace MeadowSolar
         /// </summary>
         public void finish()
         {
-            //writer.WriteEndArray();
-            writer.WriteEndObject();
+            writer.WriteEndArray();
+            //writer.WriteEndObject();
             writer.Close();
         }
     }
