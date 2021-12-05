@@ -37,6 +37,11 @@ namespace MeadowSolar
             //System.Diagnostics.Debug.WriteLine(JsonFile);
             Values V = JsonConvert.DeserializeObject<Values>(JsonFile); //DeSerializes the Json Object to V
 
+            //foreach (var items in V.Packets)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(items);
+            //}
+
             System.Diagnostics.Debug.WriteLine(V.PacketNR);
         }
     }
@@ -46,32 +51,34 @@ namespace MeadowSolar
     /// </summary>
     public class Values
     {
-        //"packet nr:": 311,
-        //"AnalogValue0": 351.0/*LED3*/,
-        //"AnalogValue1": 350.8/*LED2*/,
-        //"AnalogValue2": 351.0/*LED1*/,
-        //"AnalogValue3": 246.6/*Solar Voltage*/,
-        //"AnalogValue4": 351.4/*Battery Voltage*/,
-        //"AnalogValue5": 350.4/*"Reference Voltage"*/,
+        //"PacketNR": 97,
+        //"AnalogValue0": 79.6/*LED3*/,
+        //"AnalogValue1": 79.0/*LED2*/,
+        //"AnalogValue2": 79.2/*LED1*/,
+        //"AnalogValue3": 177.6/*Solar Voltage*/,
+        //"AnalogValue4": 78.2/*Battery Voltage*/,
+        //"AnalogValue5": 79.6/*"Reference Voltage"*/,
         //"SolarVoltage": "0.2 V",
-        //"BatteryVoltage": "0.4 V",
+        //"BatteryVoltage": "0.1 V",
         //"BatteryCurrent": " 0.0 mA",
         //"LED1_Current": " 0.0 mA",
         //"LED2_Current": " 0.0 mA",
         //"LED3_Current": " 0.0 mA"
 
+        //public string[] Packets { get; set; }
+
         public int PacketNR { get; set; }
-        public int AnalogValue0 { get; set; }
-        public int AnalogValue1 { get; set; }
-        public int AnalogValue2 { get; set; }
-        public int AnalogValue3 { get; set; }
-        public int AnalogValue4 { get; set; }
-        public int AnalogValue5 { get; set; }
-        public int SolarVoltage { get; set; }
-        public int BatteryVoltage { get; set; }
-        public int BatteryCurrent { get; set; }
-        public int LED1_Current { get; set; }
-        public int LED2_Current { get; set; }
-        public int LED3_Current { get; set; }
+        public double AnalogValue0 { get; set; }
+        public double AnalogValue1 { get; set; }
+        public double AnalogValue2 { get; set; }
+        public double AnalogValue3 { get; set; }
+        public double AnalogValue4 { get; set; }
+        public double AnalogValue5 { get; set; }
+        public string SolarVoltage { get; set; }
+        public string BatteryVoltage { get; set; }
+        public string BatteryCurrent { get; set; }
+        public string LED1_Current { get; set; }
+        public string LED2_Current { get; set; }
+        public string LED3_Current { get; set; }
     }
 }
