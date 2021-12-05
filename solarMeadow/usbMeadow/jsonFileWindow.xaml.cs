@@ -10,11 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
-using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
 
 namespace MeadowSolar
 {
@@ -37,7 +32,7 @@ namespace MeadowSolar
             fileWindowHandler.SelectFile();
 
             dataDisplay.Text = fileWindowHandler.file;
-            //fileWindowHandler.deSerializer();
+            fileWindowHandler.deSerializer();
         }
     }
 }

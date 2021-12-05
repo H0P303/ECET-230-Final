@@ -1,8 +1,5 @@
 ﻿using MeadowSolar;
-using Microsoft.Win32;
-using Newtonsoft.Json;
 using System;
-using System.IO;
 using System.IO.Ports;
 using System.Text;
 using System.Windows;
@@ -28,7 +25,6 @@ namespace usbMeadow
         private StringBuilder stringBuilderSend = new StringBuilder("###1111196");
         private FileSave fileSave = new FileSave();
         private SolarCalc solarCalc = new SolarCalc();
-        private FileWindowHandler fileWindowHandler = new FileWindowHandler();
 
         public MainWindow()
         {
@@ -233,8 +229,24 @@ namespace usbMeadow
         {
             jsonFileWindow FileWindow = new jsonFileWindow();
             FileWindow.Show();
+        }
 
-            //fileWindowHandler.OpenWindow();
+        /// <summary>
+        /// Only Lets User Close Window If Com Port Has Been Closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (bPortOpen == true)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Close COM Port Before Closing Window", "COM Port Open", MessageBoxButton.OK);
+            }
+            else
+            {
+                e.Cancel = false;
+            }
         }
 
         /// <summary>
@@ -259,9 +271,6 @@ namespace usbMeadow
 
         private void DisplaySolarData(string newPacket)
         {
-            //TODO Display solar data
-            //throw new NotImplementedException();
-
             solarCalc.ParseSolarData(newPacket);
             txtSolarVoltage.Text = solarCalc.GetVoltage(solarCalc.analogVoltage[3]);
             txtBatteryVoltage.Text = solarCalc.GetVoltage(solarCalc.analogVoltage[4]);
@@ -288,6 +297,7 @@ namespace usbMeadow
                     btnOpenClose.Content = "Open";
                     bPortOpen = false;
                     isSaveLocationSelected = false;
+                    fileSave.finish();
                 }
             }
             else

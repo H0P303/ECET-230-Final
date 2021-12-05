@@ -86,5 +86,16 @@ namespace MeadowSolar
 
             writer.WriteEndObject();
         }
+
+        /// <summary>
+        /// Terminates the Json Doc.
+        /// Run when COM Port is closed
+        /// </summary>
+        public void finish()
+        {
+            writer.WriteEndArray();
+            writer.WriteEndObject();
+            writer.Close();
+        }
     }
 }
