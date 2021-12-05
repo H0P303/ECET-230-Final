@@ -22,6 +22,8 @@ Final Project for ECET-230-2021, By Alexander O
  
 	DataLogging:
 		Add File Save -JSON FORMAT -- ✅
+		Implement DeSerialization of Json File -- 🔺
+		Display DeSerialized Json File content in new Window -- 🔺
 	LCD Graphing:
 		Add GUI element for on/off graph --
 
