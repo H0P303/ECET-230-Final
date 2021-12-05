@@ -1,5 +1,8 @@
 ﻿using Microsoft.Win32;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.IO;
 
 namespace MeadowSolar
@@ -9,6 +12,7 @@ namespace MeadowSolar
         private JsonTextReader reader;
 
         public string file { get; set; }
+        public string JsonFile { get; set; }
 
         public void SelectFile()
         {
@@ -24,5 +28,16 @@ namespace MeadowSolar
                 file = openFileDialog1.FileName;
             }
         }
+
+        public void deSerializer()
+        {
+            JsonFile = File.ReadAllText(file);
+            System.Diagnostics.Debug.WriteLine(JsonFile);
+        }
     }
+
+    //public class Values
+    //{
+    //    public
+    //}
 }

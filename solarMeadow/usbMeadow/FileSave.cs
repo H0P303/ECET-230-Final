@@ -46,12 +46,6 @@ namespace MeadowSolar
         public void parser(string newPacket)
         {
             int packetNR = Convert.ToInt32(newPacket.Substring(3, 3));
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    //For index 0 the substring starts at 6. For index 1 the substring starts at 6 + 4 = 10 etc.
-            //    analogVoltage[i] = Convert.ToDouble(newPacket.Substring(6 + (i * 4), 4));
-            //    analogVoltage[i] = solarCalc.averageVoltage(analogVoltage[i], i); //Adds voltage reading to an incrementing location inside of 2d array
-            //}
 
             saver(solarCalc.ParseSolarData(newPacket), packetNR);
         }
@@ -67,18 +61,15 @@ namespace MeadowSolar
         private void saver(double[] analogV, int packetNR)
         {
             writer.WriteStartObject();
-            writer.WritePropertyName($"packet nr: {packetNR}");
-            writer.WriteStartArray();
-            writer.WriteStartObject();
+            writer.WritePropertyName("packet nr:");
+            writer.WriteValue(packetNR);
 
             //Loops through each analog value inside packet
             for (int i = 0; i < 6; i++)
             {
-                //writer.WriteStartObject();
                 writer.WritePropertyName($"AnalogValue{i}");
                 writer.WriteValue(analogV[i]);
                 writer.WriteComment(analogPins[i]);
-                //writer.WriteEndObject();
             }
             writer.WritePropertyName("SolarVoltage");
             writer.WriteValue(solarCalc.GetVoltage(solarCalc.analogVoltage[3]));
@@ -86,15 +77,13 @@ namespace MeadowSolar
             writer.WriteValue(solarCalc.GetVoltage(solarCalc.analogVoltage[4]));
             writer.WritePropertyName("BatteryCurrent");
             writer.WriteValue(solarCalc.GetCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[4]));
-            writer.WritePropertyName("LED1-Current");
+            writer.WritePropertyName("LED1_Current");
             writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[2]));
-            writer.WritePropertyName("LED2-Current");
+            writer.WritePropertyName("LED2_Current");
             writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[1]));
-            writer.WritePropertyName("LED3-Current");
+            writer.WritePropertyName("LED3_Current");
             writer.WriteValue(solarCalc.LEDCurrent(solarCalc.analogVoltage[5], solarCalc.analogVoltage[0]));
 
-            writer.WriteEndObject();
-            writer.WriteEndArray();
             writer.WriteEndObject();
         }
     }

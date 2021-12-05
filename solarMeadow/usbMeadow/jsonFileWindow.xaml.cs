@@ -10,11 +10,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 
 namespace MeadowSolar
 {
     /// <summary>
     /// Interaction logic for jsonFileWindow.xaml
+    ///
+    /// https://www.youtube.com/watch?v=ZqARpaB39TY&ab_channel=DimitriPatarroyo
     /// </summary>
     public partial class jsonFileWindow : Window
     {
@@ -28,7 +35,9 @@ namespace MeadowSolar
         private void JsonWindowMain_Loaded(object sender, RoutedEventArgs e)
         {
             fileWindowHandler.SelectFile();
+
             dataDisplay.Text = fileWindowHandler.file;
+            //fileWindowHandler.deSerializer();
         }
     }
 }
