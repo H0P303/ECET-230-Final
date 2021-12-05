@@ -23,10 +23,11 @@ Final Project for ECET-230-2021, By Alexander O
 	DataLogging:
 		Add File Save -JSON FORMAT -- ✅
 	LCD Graphing:
-		Add GUI element for on/off graph -- 🔺
+		Add GUI element for on/off graph --
 
 
 ### Planned Features:
 
-	File save
-	Graphing
+	File save -- ✅
+	File Viewing -- 🔺
+	Graphing -- 
