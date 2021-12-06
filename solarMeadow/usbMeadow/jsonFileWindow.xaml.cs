@@ -32,11 +32,12 @@ namespace MeadowSolar
         {
             fileWindowHandler.SelectFile();
             JsonWindowMain.Title = $"File Open: {fileWindowHandler.file}";
-            dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
+            //dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
 
             foreach (var i in fileWindowHandler.N)
             {
-                Debug.WriteLine(i);
+                Debug.WriteLine($"Packet NR: {i}");
+                dataDisplay.Text = $"{dataDisplay.Text + i}\n";
             }
             //System.Diagnostics.Debug.WriteLine(fileWindowHandler.N);
             //Debug.WriteLine("Hello");
