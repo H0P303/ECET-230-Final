@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 
 namespace MeadowSolar
@@ -8,6 +9,8 @@ namespace MeadowSolar
     {
         public string file { get; set; }
         public string JsonFile { get; set; }
+
+        public List<Packets> V { get; set; }
 
         /// <summary>
         /// Allows user to select desired file to open.
@@ -26,24 +29,29 @@ namespace MeadowSolar
                 fs.Close();
                 file = openFileDialog1.FileName;
             }
+            deSerializer();
         }
 
         /// <summary>
         /// DeSerializes the Json File that the User Selected
+        /// https://stackoverflow.com/questions/18192357/deserializing-json-object-array-with-json-net
+        /// https://www.c-sharpcorner.com/article/c-sharp-list/
         /// </summary>
         public void deSerializer()
         {
             JsonFile = File.ReadAllText(file);
             //System.Diagnostics.Debug.WriteLine(JsonFile);
-            Values V = JsonConvert.DeserializeObject<Values>(JsonFile); //DeSerializes the Json Object to V
+            V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
 
-            //foreach (var items in V.Packets)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(items);
-            //}
-
-            System.Diagnostics.Debug.WriteLine(V.PacketNR);
+            //return V;
+            //System.Diagnostics.Debug.WriteLine(V[0].Values.PacketNR);
         }
+    }
+
+    public class Packets
+    {
+        [JsonProperty("Packet")]
+        public Values Values { get; set; }
     }
 
     /// <summary>
@@ -66,19 +74,43 @@ namespace MeadowSolar
         //"LED3_Current": " 0.0 mA"
 
         //public string[] Packets { get; set; }
-
+        [JsonProperty("PacketNR")]
         public int PacketNR { get; set; }
+
+        [JsonProperty("AnalogValue0")]
         public double AnalogValue0 { get; set; }
+
+        [JsonProperty("AnalogValue1")]
         public double AnalogValue1 { get; set; }
+
+        [JsonProperty("AnalogValue2")]
         public double AnalogValue2 { get; set; }
+
+        [JsonProperty("AnalogValue3")]
         public double AnalogValue3 { get; set; }
+
+        [JsonProperty("AnalogValue4")]
         public double AnalogValue4 { get; set; }
+
+        [JsonProperty("AnalogValue5")]
         public double AnalogValue5 { get; set; }
+
+        [JsonProperty("SolarVoltage")]
         public string SolarVoltage { get; set; }
+
+        [JsonProperty("BatteryVoltage")]
         public string BatteryVoltage { get; set; }
+
+        [JsonProperty("BatteryCurrent")]
         public string BatteryCurrent { get; set; }
+
+        [JsonProperty("LED1_Current")]
         public string LED1_Current { get; set; }
+
+        [JsonProperty("LED2_Current")]
         public string LED2_Current { get; set; }
+
+        [JsonProperty("LED3_Current")]
         public string LED3_Current { get; set; }
     }
 }

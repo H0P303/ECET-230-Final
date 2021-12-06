@@ -30,9 +30,8 @@ namespace MeadowSolar
         private void JsonWindowMain_Loaded(object sender, RoutedEventArgs e)
         {
             fileWindowHandler.SelectFile();
-
-            dataDisplay.Text = fileWindowHandler.file;
-            fileWindowHandler.deSerializer();
+            //dataDisplay.Text = fileWindowHandler.file;
+            dataDisplay.Text = fileWindowHandler.V[0].Values.ToString();
         }
     }
 }
