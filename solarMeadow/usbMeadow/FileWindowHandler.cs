@@ -10,6 +10,8 @@ namespace MeadowSolar
         public string file { get; set; }
         public string JsonFile { get; set; }
 
+        public string[] NrPacketsAvailable = new string[100];
+        public List<int> N = new List<int>();
         public List<Packets> V { get; set; }
 
         /// <summary>
@@ -36,6 +38,7 @@ namespace MeadowSolar
         /// DeSerializes the Json File that the User Selected
         /// https://stackoverflow.com/questions/18192357/deserializing-json-object-array-with-json-net
         /// https://www.c-sharpcorner.com/article/c-sharp-list/
+        /// https://stackoverflow.com/questions/202813/adding-values-to-a-c-sharp-array
         /// </summary>
         public void deSerializer()
         {
@@ -43,15 +46,24 @@ namespace MeadowSolar
             //System.Diagnostics.Debug.WriteLine(JsonFile);
             V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
 
-            //return V;
-            //System.Diagnostics.Debug.WriteLine(V[0].Values.PacketNR);
+            System.Diagnostics.Debug.WriteLine(V[0].Packet.PacketNR);
+
+            for (int i = 0; i < V.Count; i++)
+            {
+                //System.Diagnostics.Debug.Write($"{V[i].Packet.PacketNR} \n");
+                //NrPacketsAvailable[i] = V[i].Packet.PacketNR.ToString();
+                //System.Diagnostics.Debug.Write($"{PacketsNRAvailable[i]} \n");
+
+                N.Add(V[i].Packet.PacketNR);
+            }
+            //System.Diagnostics.Debug.WriteLine("Hello");
         }
     }
 
     public class Packets
     {
         [JsonProperty("Packet")]
-        public Values Values { get; set; }
+        public Values Packet { get; set; }
     }
 
     /// <summary>

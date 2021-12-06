@@ -21,6 +21,7 @@ namespace MeadowSolar
     public partial class jsonFileWindow : Window
     {
         private FileWindowHandler fileWindowHandler = new FileWindowHandler();
+        //private int[] PacketNrAvailable;
 
         public jsonFileWindow()
         {
@@ -30,8 +31,15 @@ namespace MeadowSolar
         private void JsonWindowMain_Loaded(object sender, RoutedEventArgs e)
         {
             fileWindowHandler.SelectFile();
-            //dataDisplay.Text = fileWindowHandler.file;
-            dataDisplay.Text = fileWindowHandler.V[0].Values.ToString();
+            JsonWindowMain.Title = $"File Open: {fileWindowHandler.file}";
+            dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
+
+            foreach (var i in fileWindowHandler.N)
+            {
+                Debug.WriteLine(i);
+            }
+            //System.Diagnostics.Debug.WriteLine(fileWindowHandler.N);
+            //Debug.WriteLine("Hello");
         }
     }
 }
