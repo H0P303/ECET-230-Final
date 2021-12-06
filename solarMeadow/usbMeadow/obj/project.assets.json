@@ -39,7 +39,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
+      "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0": {
         "type": "package",
         "runtimeTargets": {
           "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so": {
@@ -48,7 +48,7 @@
           }
         }
       },
-      "runtime.linux-arm64.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
+      "runtime.linux-arm64.runtime.native.System.IO.Ports/6.0.0": {
         "type": "package",
         "runtimeTargets": {
           "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so": {
@@ -57,7 +57,7 @@
           }
         }
       },
-      "runtime.linux-x64.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
+      "runtime.linux-x64.runtime.native.System.IO.Ports/6.0.0": {
         "type": "package",
         "runtimeTargets": {
           "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so": {
@@ -66,16 +66,26 @@
           }
         }
       },
-      "runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
+      "runtime.native.System.IO.Ports/6.0.0": {
         "type": "package",
         "dependencies": {
-          "runtime.linux-arm.runtime.native.System.IO.Ports": "6.0.0-rc.2.21480.5",
-          "runtime.linux-arm64.runtime.native.System.IO.Ports": "6.0.0-rc.2.21480.5",
-          "runtime.linux-x64.runtime.native.System.IO.Ports": "6.0.0-rc.2.21480.5",
-          "runtime.osx-x64.runtime.native.System.IO.Ports": "6.0.0-rc.2.21480.5"
+          "runtime.linux-arm.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.linux-arm64.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.linux-x64.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.osx-arm64.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.osx-x64.runtime.native.System.IO.Ports": "6.0.0"
         }
       },
-      "runtime.osx-x64.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
+      "runtime.osx-arm64.runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          }
+        }
+      },
+      "runtime.osx-x64.runtime.native.System.IO.Ports/6.0.0": {
         "type": "package",
         "runtimeTargets": {
           "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib": {
@@ -84,12 +94,12 @@
           }
         }
       },
-      "System.IO.Ports/6.0.0-rc.2.21480.5": {
+      "System.IO.Ports/6.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
           "System.Memory": "4.5.4",
-          "runtime.native.System.IO.Ports": "6.0.0-rc.2.21480.5"
+          "runtime.native.System.IO.Ports": "6.0.0"
         },
         "compile": {
           "lib/netstandard2.0/System.IO.Ports.dll": {}
@@ -250,89 +260,105 @@
         "packageIcon.png"
       ]
     },
-    "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
-      "sha512": "4+OsMEJmntunBMpC4DRuGowwQ5sjXk7LY/2pcSQNSEzXLFJVmv2V15zuaDimmeTdBpKCJv1E6K+qg3jVRnzcXw==",
+    "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "75q52H7CSpgIoIDwXb9o833EvBZIXJ0mdPhz1E6jSisEXUBlSCPalC29cj3EXsjpuDwr0dj1LRXZepIQH/oL4Q==",
       "type": "package",
-      "path": "runtime.linux-arm.runtime.native.system.io.ports/6.0.0-rc.2.21480.5",
+      "path": "runtime.linux-arm.runtime.native.system.io.ports/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.linux-arm.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+        "runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
         "runtime.linux-arm.runtime.native.system.io.ports.nuspec",
         "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so",
         "useSharedDesignerContext.txt"
       ]
     },
-    "runtime.linux-arm64.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
-      "sha512": "vPBc/OSiTUYdq3NS9aSnt7qMQwCy/CrzL9z5cEbfP6mfV+baoRkn2cZdV+u5oqS8hDiqvk5tTfZtOaIdFeK3MA==",
+    "runtime.linux-arm64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "xn2bMThmXr3CsvOYmS8ex2Yz1xo+kcnhVg2iVhS9PlmqjZPAkrEo/I40wjrBZH/tU4kvH0s1AE8opAvQ3KIS8g==",
       "type": "package",
-      "path": "runtime.linux-arm64.runtime.native.system.io.ports/6.0.0-rc.2.21480.5",
+      "path": "runtime.linux-arm64.runtime.native.system.io.ports/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.linux-arm64.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+        "runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
         "runtime.linux-arm64.runtime.native.system.io.ports.nuspec",
         "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so",
         "useSharedDesignerContext.txt"
       ]
     },
-    "runtime.linux-x64.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
-      "sha512": "+nHA0qzXwC6WKfTF7s0DUsIdicp3sctTa49xWkS7AP7r9THo6J6fCsqiWfcVvkOhTutr2cEZF/Ml/vvBlMdZRg==",
+    "runtime.linux-x64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "16nbNXwv0sC+gLGIuecri0skjuh6R1maIJggsaNP7MQBcbVcEfWFUOkEnsnvoLEjy0XerfibuRptfQ8AmdIcWA==",
       "type": "package",
-      "path": "runtime.linux-x64.runtime.native.system.io.ports/6.0.0-rc.2.21480.5",
+      "path": "runtime.linux-x64.runtime.native.system.io.ports/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.linux-x64.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+        "runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
         "runtime.linux-x64.runtime.native.system.io.ports.nuspec",
         "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so",
         "useSharedDesignerContext.txt"
       ]
     },
-    "runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
-      "sha512": "amki0b6E+mFusCM9S8F4XIfHrb2tmg2kv43aVo0SU0uFIt55YU7bSE9kaaY+IkIeShgLG3tuKG78DiDXhrMOzw==",
+    "runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "KaaXlpOcuZjMdmyF5wzzx3b+PRKIzt6A5Ax9dKenPDQbVJAFpev+casD0BIig1pBcbs3zx7CqWemzUJKAeHdSQ==",
       "type": "package",
-      "path": "runtime.native.system.io.ports/6.0.0-rc.2.21480.5",
+      "path": "runtime.native.system.io.ports/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+        "runtime.native.system.io.ports.6.0.0.nupkg.sha512",
         "runtime.native.system.io.ports.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "runtime.osx-x64.runtime.native.System.IO.Ports/6.0.0-rc.2.21480.5": {
-      "sha512": "19SKzSHK1J0cJj+HE1dZq98FZL3JJdpSbeV499tCkLW02DHHeGl/3nazg+yxq4opGY83ckx6Qla/As+z8Ob/AA==",
+    "runtime.osx-arm64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "fXG12NodG1QrCdoaeSQ1gVnk/koi4WYY4jZtarMkZeQMyReBm1nZlSRoPnUjLr2ZR36TiMjpcGnQfxymieUe7w==",
       "type": "package",
-      "path": "runtime.osx-x64.runtime.native.system.io.ports/6.0.0-rc.2.21480.5",
+      "path": "runtime.osx-arm64.runtime.native.system.io.ports/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.osx-x64.runtime.native.system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+        "runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.osx-arm64.runtime.native.system.io.ports.nuspec",
+        "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.osx-x64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "/As+zPY49+dSUXkh+fTUbyPhqrdGN//evLxo4Vue88pfh1BHZgF7q4kMblTkxYvwR6Vi03zSYxysSFktO8/SDQ==",
+      "type": "package",
+      "path": "runtime.osx-x64.runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
         "runtime.osx-x64.runtime.native.system.io.ports.nuspec",
         "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib",
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.IO.Ports/6.0.0-rc.2.21480.5": {
-      "sha512": "htgl5qerh3AgY6GHmkSJde60zGXypqCTuSFhQ4KJwRUfMKJ7nCVV8YVJO9NzQSF4sJ9Tdlr1pRwbLSG6qbHfTA==",
+    "System.IO.Ports/6.0.0": {
+      "sha512": "dRyGI7fUESar5ZLIpiBOaaNLW7YyOBGftjj5Of+xcduC/Rjl7RjhEnWDvvNBmHuF3d0tdXoqdVI/yrVA8f00XA==",
       "type": "package",
-      "path": "system.io.ports/6.0.0-rc.2.21480.5",
+      "path": "system.io.ports/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -357,7 +383,7 @@
         "runtimes/win/lib/net6.0/System.IO.Ports.xml",
         "runtimes/win/lib/netstandard2.0/System.IO.Ports.dll",
         "runtimes/win/lib/netstandard2.0/System.IO.Ports.xml",
-        "system.io.ports.6.0.0-rc.2.21480.5.nupkg.sha512",
+        "system.io.ports.6.0.0.nupkg.sha512",
         "system.io.ports.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -491,7 +517,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Newtonsoft.Json >= 13.0.1",
-      "System.IO.Ports >= 6.0.0-rc.2.21480.5"
+      "System.IO.Ports >= 6.0.0"
     ]
   },
   "packageFolders": {
@@ -544,7 +570,7 @@
           },
           "System.IO.Ports": {
             "target": "Package",
-            "version": "[6.0.0-rc.2.21480.5, )"
+            "version": "[6.0.0, )"
           }
         },
         "imports": [

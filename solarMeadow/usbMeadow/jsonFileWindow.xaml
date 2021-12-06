@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MeadowSolar"
         mc:Ignorable="d"
         Title="jsonFileWindow" Height="450" Width="800" Loaded="JsonWindowMain_Loaded">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
             <TextBox Width="300" Height="auto" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" MaxHeight="400" x:Name="dataDisplay" />
+        </StackPanel>
+        <StackPanel Height="400" Width="400" Margin="10,0,0,0">
+            <InkCanvas Height="400" Width="400" x:Name="DataGraphCanvas" />
         </StackPanel>
     </StackPanel>
 </Window>

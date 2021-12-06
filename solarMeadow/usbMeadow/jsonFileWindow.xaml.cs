@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Windows.Ink;
 
 namespace MeadowSolar
 {
@@ -21,6 +22,8 @@ namespace MeadowSolar
     public partial class jsonFileWindow : Window
     {
         private FileWindowHandler fileWindowHandler = new FileWindowHandler();
+        private SolidColorBrush solidColorBrush = new SolidColorBrush();
+        private DrawingAttributes inkDrawingAttributes;
         //private int[] PacketNrAvailable;
 
         public jsonFileWindow()
@@ -39,8 +42,20 @@ namespace MeadowSolar
                 Debug.WriteLine($"Packet NR: {i}");
                 dataDisplay.Text = $"{dataDisplay.Text + i}\n";
             }
+
+            DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0, solidColorBrush);
             //System.Diagnostics.Debug.WriteLine(fileWindowHandler.N);
             //Debug.WriteLine("Hello");
+        }
+
+        private void DrawGraph(List<int> X, List<double> Y, SolidColorBrush colorBrush)
+        {
+            int o = 0;
+            foreach (var i in Y)
+            {
+                Debug.WriteLine($"X-Pos: {X[o]}, Y-Pos: {i}");
+                o++;
+            }
         }
     }
 }

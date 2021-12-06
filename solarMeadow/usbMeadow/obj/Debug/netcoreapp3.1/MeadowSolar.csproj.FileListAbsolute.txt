@@ -69,5 +69,5 @@ C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usb
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar.csproj.AssemblyReference.cache
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\jsonFileWindow.g.cs
-C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\MeadowSolar_MarkupCompile.lref
 C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\obj\Debug\netcoreapp3.1\jsonFileWindow.baml
+C:\Users\alexa\Documents\FALL2021\ECET-230\FINALS\ECET-230-Final\solarMeadow\usbMeadow\bin\Debug\netcoreapp3.1\runtimes\osx-arm64\native\libSystem.IO.Ports.Native.dylib
