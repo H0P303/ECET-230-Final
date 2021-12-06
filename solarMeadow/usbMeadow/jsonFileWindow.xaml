@@ -13,6 +13,7 @@
             <Canvas Height="400" Width="400" x:Name="DataGraphCanvas" />
         </StackPanel>
         <StackPanel>
+            <Button Height="25" Width="75" Content="Enter" x:Name="packetSelectorBtn" Click="packetSelectorBtn_Click" />
             <ListBox Width="75" Height="200" x:Name="packetList" />
         </StackPanel>
     </StackPanel>
