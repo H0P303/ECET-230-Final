@@ -22,8 +22,6 @@ namespace MeadowSolar
     public partial class jsonFileWindow : Window
     {
         private FileWindowHandler fileWindowHandler = new FileWindowHandler();
-        private SolidColorBrush solidColorBrush = new SolidColorBrush();
-        private DrawingAttributes inkDrawingAttributes;
         //private int[] PacketNrAvailable;
 
         public jsonFileWindow()
@@ -43,21 +41,39 @@ namespace MeadowSolar
                 dataDisplay.Text = $"{dataDisplay.Text + i}\n";
                 packetList.Items.Add(i);
             }
-            DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0, solidColorBrush);
-            //System.Diagnostics.Debug.WriteLine(fileWindowHandler.N);
-            //Debug.WriteLine("Hello");
-
-            //packetList.
+            DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0);
         }
 
-        private void DrawGraph(List<int> X, List<double> Y, SolidColorBrush colorBrush)
+        private void DrawGraph(List<int> X, List<double> Y)
         {
             int o = 0;
+            List<Line> line = new List<Line>();
+            Line line2 = new Line();
+            //Line[] ye = new Line[100];
+            //Point startPoint = new Point();
             foreach (var i in Y)
             {
                 Debug.WriteLine($"Packet NR: {X[o]}, X-Pos: {o}, Y-Pos: {i}");
+                //startPoint.X = o;
+                //startPoint.Y = i / 400;
+
+                //line2.X1 = o;
+                //line2.Y1 = 400 - (i / 40);
+                //line2.X2 = o + 1;
+                //line2.Y2 = 400 - (i / 40);
+                //line2.Stroke = new SolidColorBrush(Colors.Black);
+                //line2.StrokeThickness = 4;
+                //line.Add(line2);
                 o++;
             }
+
+            //foreach (var i in line)
+            //{
+            //    GraphCanvas.Children.Add(i);
+            //}
+
+            //GraphCanvas.Children.Add(line[2]);
+            //GraphCanvas.Children.Add(line[3]);
         }
 
         private void packetSelectorBtn_Click(object sender, RoutedEventArgs e)
