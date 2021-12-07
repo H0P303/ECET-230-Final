@@ -38,7 +38,7 @@ namespace MeadowSolar
             foreach (var i in fileWindowHandler.N)
             {
                 Debug.WriteLine($"Packet NR: {i}");
-                dataDisplay.Text = $"{dataDisplay.Text + i}\n";
+                //dataDisplay.Text = $"{dataDisplay.Text + i}\n";
                 packetList.Items.Add(i);
             }
             DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0);

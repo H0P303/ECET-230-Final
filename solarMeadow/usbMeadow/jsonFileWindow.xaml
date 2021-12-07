@@ -6,16 +6,18 @@
         mc:Ignorable="d"
         Title="jsonFileWindow" Height="450" Width="900" Loaded="JsonWindowMain_Loaded">
     <StackPanel Orientation="Horizontal">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-            <TextBox IsEnabled="False" Width="300" Height="auto" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" MaxHeight="400" x:Name="dataDisplay" />
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="200" Height="435">
+            <Label Content="Packet Content" Width="90" />
+            <TextBox IsEnabled="False" Width="200" Height="180" VerticalAlignment="Center"  TextWrapping="Wrap" x:Name="dataDisplay" />
+        </StackPanel>
+        <StackPanel Width="100" Margin="10,0,0,0">
+            <Label Content="Select Packet" />
+            <ListBox Width="100" Height="auto" MaxHeight="300" x:Name="packetList" Margin="0,0,0,10" />
+            <Button Height="25" Width="76" Content="Selected" x:Name="packetSelectorBtn" Click="packetSelectorBtn_Click" />
         </StackPanel>
         <StackPanel Height="400" Width="400" Margin="10,0,0,0">
             <Canvas Height="400" Width="400" x:Name="GraphCanvas" Background="White" OpacityMask="White">
             </Canvas>
-        </StackPanel>
-        <StackPanel Margin="10,0,0,0">
-            <Button Height="25" Width="75" Content="Enter" x:Name="packetSelectorBtn" Click="packetSelectorBtn_Click" />
-            <ListBox Width="75" Height="200" x:Name="packetList" />
         </StackPanel>
     </StackPanel>
 </Window>
