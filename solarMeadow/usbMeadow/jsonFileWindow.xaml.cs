@@ -47,29 +47,42 @@ namespace MeadowSolar
         private void DrawGraph(List<int> X, List<double> Y)
         {
             int o = 0;
-            List<Line> line = new List<Line>();
+            int j = 0;
+            int z;
+            List<Line> lineList = new List<Line>();
 
-            //Line[] ye = new Line[100];
-            //Point startPoint = new Point();
             foreach (var i in Y)
             {
                 Debug.WriteLine($"Packet NR: {X[o]}, X-Pos: {o}, Y-Pos: {i}");
                 Line line2 = new Line();
-                //startPoint.X = o;
-                //startPoint.Y = i / 400;
-
-                line2.X1 = o;
-                line2.Y1 = 400 - (i / 40);
-                line2.X2 = o + 1;
-                line2.Y2 = 400 - (i / 40);
+                Ellipse ellipsePlaceHolder = new Ellipse();
+                ellipsePlaceHolder.Width = 4;
+                ellipsePlaceHolder.Height = 4;
+                ellipsePlaceHolder.Fill = new SolidColorBrush(Colors.Red);
+                Canvas.SetZIndex(ellipsePlaceHolder, 999);
+                line2.X1 = j;
+                line2.Y1 = 400 - Map(0, 3300, 0, 400, i);
+                z = j + (400 / fileWindowHandler.N.Count);
+                line2.X2 = z;
+                if ((o + 1) < fileWindowHandler.V.Count)
+                {
+                    line2.Y2 = 400 - Map(0, 3300, 0, 400, fileWindowHandler.V[o + 1].Packet.AnalogValue0);
+                }
+                else
+                {
+                    line2.Y2 = 400 - Map(0, 3300, 0, 400, i);
+                }
                 line2.Stroke = new SolidColorBrush(Colors.Black);
-                line2.StrokeThickness = 4;
-                line.Add(line2);
-                //GraphCanvas.Children.Add(line2);
+                line2.StrokeThickness = 2;
+                lineList.Add(line2);
+                Canvas.SetLeft(ellipsePlaceHolder, line2.X2 - (ellipsePlaceHolder.Width / 2));
+                Canvas.SetTop(ellipsePlaceHolder, line2.Y2 - (ellipsePlaceHolder.Height / 2));
+                GraphCanvas.Children.Add(ellipsePlaceHolder);
                 o++;
+                j = z;
             }
 
-            foreach (var i in line)
+            foreach (var i in lineList)
             {
                 GraphCanvas.Children.Add(i);
             }
@@ -77,6 +90,10 @@ namespace MeadowSolar
             //GraphCanvas.Children.Add(line[2]);
             //GraphCanvas.Children.Add(line[3]);
         }
+
+        //http://rosettacode.org/wiki/Map_range#C
+
+        private static double Map(double a1, double a2, double b1, double b2, double s) => b1 + (s - a1) * (b2 - b1) / (a2 - a1);
 
         private void packetSelectorBtn_Click(object sender, RoutedEventArgs e)
         {
