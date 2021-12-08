@@ -4,20 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="jsonFileWindow" Height="450" Width="900" Loaded="JsonWindowMain_Loaded">
+        Title="jsonFileWindow" Height="482" Width="900" Loaded="JsonWindowMain_Loaded">
     <StackPanel Orientation="Horizontal">
-        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="200" Height="435">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="200" Margin="0,10,0,0">
             <Label Content="Packet Content" Width="90" />
             <TextBox IsEnabled="False" Width="200" Height="180" VerticalAlignment="Center"  TextWrapping="Wrap" x:Name="dataDisplay" />
         </StackPanel>
-        <StackPanel Width="100" Margin="10,0,0,0">
+        <StackPanel Width="100" Margin="10,10,0,0">
             <Label Content="Select Packet" />
             <ListBox Width="100" Height="auto" MaxHeight="300" x:Name="packetList" Margin="0,0,0,10" />
             <Button Height="25" Width="76" Content="Selected" x:Name="packetSelectorBtn" Click="packetSelectorBtn_Click" />
         </StackPanel>
-        <StackPanel Height="400" Width="400" Margin="10,0,0,0">
-            <Canvas Height="400" Width="400" x:Name="GraphCanvas" Background="White" OpacityMask="White">
-            </Canvas>
+        <StackPanel Width="450" Margin="50,0,0,0" Orientation="Vertical">
+            <StackPanel Width="450" Margin="0,10,0,0" Orientation="Horizontal">
+                <StackPanel VerticalAlignment="Center" Height="50" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="90" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <Label Margin="-10,0,0,0"  Content="Analog 0" Width="90" Height="35" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="Bold">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform Angle="180" />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                </StackPanel>
+                <Canvas Height="400" Width="400" x:Name="GraphCanvas" Background="White" OpacityMask="White" />
+                <StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Packet Index" Width="120" FontWeight="Bold" FontSize="18" />
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 </Window>
