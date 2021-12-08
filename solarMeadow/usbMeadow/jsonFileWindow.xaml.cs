@@ -24,6 +24,7 @@ namespace MeadowSolar
     {
         private FileWindowHandler fileWindowHandler = new FileWindowHandler();
         private List<Ellipse> ellipseList = new List<Ellipse>();
+        private List<Line> lineList = new List<Line>();
         private int OldIndex;
         //private int[] PacketNrAvailable;
 
@@ -59,7 +60,6 @@ namespace MeadowSolar
             double CurrentYAxisPos;
             int NextXAxisPos;
             int j = 0;
-            List<Line> lineList = new List<Line>();
 
             //Loops through each AN0 reading inside C_An0 list
             //Creates line beginning and ending at the current X and Y[i] point
@@ -72,6 +72,10 @@ namespace MeadowSolar
                 CurrentYAxisPos = 400 - Map(0, 3300, 0, 400, i);
                 line2.Y1 = CurrentYAxisPos;
                 NextXAxisPos = CurrentXAxisPos + (400 / fileWindowHandler.N.Count);
+                if (NextXAxisPos == CurrentXAxisPos)
+                {
+                    NextXAxisPos++;
+                }
                 line2.X2 = NextXAxisPos;
                 if ((PacketIterationTracker + 1) < fileWindowHandler.V.Count)
                 {
@@ -115,60 +119,22 @@ namespace MeadowSolar
             //lineList.Add(linePlaceHolder);
 
             //Draws each line object inside Line List
-            //TimedAction.ExecuteWithDelay(new Action(delegate
-            //{
-            //    foreach (var i in lineList)
-            //    {
-            //        GraphCanvas.Children.Add(i);
-            //    }
-            //}), TimeSpan.FromSeconds(1));
             foreach (var i in lineList)
             {
                 GraphCanvas.Children.Add(i);
             }
             //Draws Each packet marker
-            //TimedAction.ExecuteWithDelay(new Action(delegate
+            //foreach (var i in ellipseList)
             //{
-            //    foreach (var i in ellipseList)
-            //    {
-            //        Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
-            //        Canvas.SetTop(i, lineList[j].Y1 - (i.Height / 2));
-            //        GraphCanvas.Children.Add(i);
-            //        j++;
-            //    }
-            //}), TimeSpan.FromSeconds(1));
-            foreach (var i in ellipseList)
-            {
-                Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
-                Canvas.SetTop(i, lineList[j].Y1 - (i.Height / 2));
-                GraphCanvas.Children.Add(i);
-                j++;
-            }
+            //    Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
+            //    Canvas.SetTop(i, lineList[j].Y1 - (i.Height / 2));
+            //    GraphCanvas.Children.Add(i);
+            //    j++;
+            //}
             //int ye = ellipseList.Count;
             //Canvas.SetLeft(ellipseList[ye - 1], lineList[j - 1].X2 - (ellipseList[ye - 1].Width / 2));
             //Canvas.SetTop(ellipseList[ye - 1], lineList[j - 1].Y2 - (ellipseList[ye - 1].Height / 2));
             //GraphCanvas.Children.Add(ellipseList[ye]);
-        }
-
-        public static class TimedAction
-        {
-            public static void ExecuteWithDelay(Action action, TimeSpan delay)
-            {
-                DispatcherTimer timer = new DispatcherTimer();
-                timer.Interval = delay;
-                timer.Tag = action;
-                timer.Tick += new EventHandler(timer_Tick);
-                timer.Start();
-            }
-
-            private static void timer_Tick(object sender, EventArgs e)
-            {
-                DispatcherTimer timer = (DispatcherTimer)sender;
-                Action action = (Action)timer.Tag;
-
-                action.Invoke();
-                timer.Stop();
-            }
         }
 
         /// <summary>
@@ -197,7 +163,8 @@ namespace MeadowSolar
             //Sets all packet markers to default color
             foreach (var i in ellipseList)
             {
-                i.Fill = new SolidColorBrush(Colors.Red);
+                //i.Fill = new SolidColorBrush(Colors.Red);
+                GraphCanvas.Children.Remove(i);
             }
 
             SelectedPacketNr = Convert.ToInt32(packetList.Items[packetList.SelectedIndex]);
@@ -233,7 +200,10 @@ namespace MeadowSolar
                 $"LED2 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED2_Current} \n" +
                 $"LED3 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED3_Current} \n";
 
-            ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Blue);
+            ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Red);
+            Canvas.SetLeft(ellipseList[CurrentIndex], lineList[CurrentIndex].X1 - (ellipseList[CurrentIndex].Width / 2));
+            Canvas.SetTop(ellipseList[CurrentIndex], lineList[CurrentIndex].Y1 - (ellipseList[CurrentIndex].Height / 2));
+            GraphCanvas.Children.Add(ellipseList[CurrentIndex]);
         }
     }
 }
