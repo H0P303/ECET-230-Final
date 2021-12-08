@@ -51,6 +51,7 @@ namespace MeadowSolar
         {
             int PacketIterationTracker = 0;
             int CurrentXAxisPos = 0;
+            double CurrentYAxisPos = 0;
             int NextXAxisPos;
             int j = 0;
             List<Line> lineList = new List<Line>();
@@ -59,13 +60,10 @@ namespace MeadowSolar
             {
                 Debug.WriteLine($"Packet NR: {X[PacketIterationTracker]}, X-Pos: {PacketIterationTracker}, Y-Pos: {i}");
                 Line line2 = new Line();
-                Ellipse ellipsePlaceHolder = new Ellipse();
-                ellipsePlaceHolder.Width = 5;
-                ellipsePlaceHolder.Height = 5;
-                ellipsePlaceHolder.Fill = new SolidColorBrush(Colors.Red);
-                Canvas.SetZIndex(ellipsePlaceHolder, 999);
                 line2.X1 = CurrentXAxisPos;
-                line2.Y1 = 400 - Map(0, 3300, 0, 400, i);
+                CurrentYAxisPos = 400 - Map(0, 3300, 0, 400, i);
+                //line2.Y1 = 400 - Map(0, 3300, 0, 400, i);
+                line2.Y1 = CurrentYAxisPos;
                 NextXAxisPos = CurrentXAxisPos + (400 / fileWindowHandler.N.Count);
                 line2.X2 = NextXAxisPos;
                 if ((PacketIterationTracker + 1) < fileWindowHandler.V.Count)
@@ -79,6 +77,12 @@ namespace MeadowSolar
                 line2.Stroke = new SolidColorBrush(Colors.Black);
                 line2.StrokeThickness = 2;
                 lineList.Add(line2);
+
+                Ellipse ellipsePlaceHolder = new Ellipse();
+                ellipsePlaceHolder.Width = 5;
+                ellipsePlaceHolder.Height = 5;
+                ellipsePlaceHolder.Fill = new SolidColorBrush(Colors.Red);
+                Canvas.SetZIndex(ellipsePlaceHolder, 999);
                 ellipseList.Add(ellipsePlaceHolder);
                 //Canvas.SetLeft(ellipsePlaceHolder, line2.X2 - (ellipsePlaceHolder.Width / 2));
                 //Canvas.SetTop(ellipsePlaceHolder, line2.Y2 - (ellipsePlaceHolder.Height / 2));
@@ -87,20 +91,37 @@ namespace MeadowSolar
                 CurrentXAxisPos = NextXAxisPos;
             }
 
+            //Ellipse ellipsePlaceHolder2 = new Ellipse();
+            //ellipsePlaceHolder2.Width = 5;
+            //ellipsePlaceHolder2.Height = 5;
+            //ellipsePlaceHolder2.Fill = new SolidColorBrush(Colors.Red);
+            //Canvas.SetZIndex(ellipsePlaceHolder2, 999);
+            //ellipseList.Add(ellipsePlaceHolder2);
+
+            //Line linePlaceHolder = new Line();
+            //linePlaceHolder.X1 = CurrentXAxisPos + 1;
+            //linePlaceHolder.Y1 = CurrentYAxisPos + 1;
+            //linePlaceHolder.X2 = CurrentXAxisPos;
+            //linePlaceHolder.Y2 = CurrentYAxisPos;
+            //linePlaceHolder.Stroke = new SolidColorBrush(Colors.Black);
+            //linePlaceHolder.StrokeThickness = 2;
+            //lineList.Add(linePlaceHolder);
+
             foreach (var i in lineList)
             {
                 GraphCanvas.Children.Add(i);
             }
             foreach (var i in ellipseList)
             {
-                Canvas.SetLeft(i, lineList[j].X2 - (i.Width / 2));
-                Canvas.SetTop(i, lineList[j].Y2 - (i.Height / 2));
+                Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
+                Canvas.SetTop(i, lineList[j].Y1 - (i.Height / 2));
                 GraphCanvas.Children.Add(i);
                 j++;
             }
-
-            //GraphCanvas.Children.Add(line[2]);
-            //GraphCanvas.Children.Add(line[3]);
+            //int ye = ellipseList.Count;
+            //Canvas.SetLeft(ellipseList[ye - 1], lineList[j - 1].X2 - (ellipseList[ye - 1].Width / 2));
+            //Canvas.SetTop(ellipseList[ye - 1], lineList[j - 1].Y2 - (ellipseList[ye - 1].Height / 2));
+            //GraphCanvas.Children.Add(ellipseList[ye]);
         }
 
         /// <summary>
@@ -122,6 +143,11 @@ namespace MeadowSolar
             int CurrentIndex;
             int SelectedPacketNr;
             //IsBtnPressed = true;
+
+            foreach (var i in ellipseList)
+            {
+                i.Fill = new SolidColorBrush(Colors.Red);
+            }
 
             SelectedPacketNr = Convert.ToInt32(packetList.Items[packetList.SelectedIndex]);
             Debug.WriteLine(SelectedPacketNr);
