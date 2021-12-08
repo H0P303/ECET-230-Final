@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Ink;
+using System.Windows.Threading;
 
 namespace MeadowSolar
 {
@@ -23,8 +24,7 @@ namespace MeadowSolar
     {
         private FileWindowHandler fileWindowHandler = new FileWindowHandler();
         private List<Ellipse> ellipseList = new List<Ellipse>();
-        private int OldIndex = 0;
-        private bool IsBtnPressed = false;
+        private int OldIndex;
         //private int[] PacketNrAvailable;
 
         public jsonFileWindow()
@@ -40,29 +40,36 @@ namespace MeadowSolar
 
             foreach (var i in fileWindowHandler.N)
             {
-                Debug.WriteLine($"Packet NR: {i}");
+                //Debug.WriteLine($"Packet NR: {i}");
                 //dataDisplay.Text = $"{dataDisplay.Text + i}\n";
                 packetList.Items.Add(i);
             }
             DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
         private void DrawGraph(List<int> X, List<double> Y)
         {
             int PacketIterationTracker = 0;
             int CurrentXAxisPos = 0;
-            double CurrentYAxisPos = 0;
+            double CurrentYAxisPos;
             int NextXAxisPos;
             int j = 0;
             List<Line> lineList = new List<Line>();
 
+            //Loops through each AN0 reading inside C_An0 list
+            //Creates line beginning and ending at the current X and Y[i] point
+            //And ends at X+1 and Y[i+1](Next An0 reading of list)
             foreach (var i in Y)
             {
-                Debug.WriteLine($"Packet NR: {X[PacketIterationTracker]}, X-Pos: {PacketIterationTracker}, Y-Pos: {i}");
+                //Debug.WriteLine($"Packet NR: {X[PacketIterationTracker]}, X-Pos: {PacketIterationTracker}, Y-Pos: {i}");
                 Line line2 = new Line();
                 line2.X1 = CurrentXAxisPos;
                 CurrentYAxisPos = 400 - Map(0, 3300, 0, 400, i);
-                //line2.Y1 = 400 - Map(0, 3300, 0, 400, i);
                 line2.Y1 = CurrentYAxisPos;
                 NextXAxisPos = CurrentXAxisPos + (400 / fileWindowHandler.N.Count);
                 line2.X2 = NextXAxisPos;
@@ -107,10 +114,29 @@ namespace MeadowSolar
             //linePlaceHolder.StrokeThickness = 2;
             //lineList.Add(linePlaceHolder);
 
+            //Draws each line object inside Line List
+            //TimedAction.ExecuteWithDelay(new Action(delegate
+            //{
+            //    foreach (var i in lineList)
+            //    {
+            //        GraphCanvas.Children.Add(i);
+            //    }
+            //}), TimeSpan.FromSeconds(1));
             foreach (var i in lineList)
             {
                 GraphCanvas.Children.Add(i);
             }
+            //Draws Each packet marker
+            //TimedAction.ExecuteWithDelay(new Action(delegate
+            //{
+            //    foreach (var i in ellipseList)
+            //    {
+            //        Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
+            //        Canvas.SetTop(i, lineList[j].Y1 - (i.Height / 2));
+            //        GraphCanvas.Children.Add(i);
+            //        j++;
+            //    }
+            //}), TimeSpan.FromSeconds(1));
             foreach (var i in ellipseList)
             {
                 Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
@@ -122,6 +148,27 @@ namespace MeadowSolar
             //Canvas.SetLeft(ellipseList[ye - 1], lineList[j - 1].X2 - (ellipseList[ye - 1].Width / 2));
             //Canvas.SetTop(ellipseList[ye - 1], lineList[j - 1].Y2 - (ellipseList[ye - 1].Height / 2));
             //GraphCanvas.Children.Add(ellipseList[ye]);
+        }
+
+        public static class TimedAction
+        {
+            public static void ExecuteWithDelay(Action action, TimeSpan delay)
+            {
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = delay;
+                timer.Tag = action;
+                timer.Tick += new EventHandler(timer_Tick);
+                timer.Start();
+            }
+
+            private static void timer_Tick(object sender, EventArgs e)
+            {
+                DispatcherTimer timer = (DispatcherTimer)sender;
+                Action action = (Action)timer.Tag;
+
+                action.Invoke();
+                timer.Stop();
+            }
         }
 
         /// <summary>
@@ -137,34 +184,40 @@ namespace MeadowSolar
         /// <returns>Maped Input As Output</returns>
         private static double Map(double a1, double a2, double b1, double b2, double s) => b1 + (s - a1) * (b2 - b1) / (a2 - a1);
 
+        /// <summary>
+        /// Displays selected packet data in textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void packetSelectorBtn_Click(object sender, RoutedEventArgs e)
         {
-            //int SelectedPacketNr = Convert.ToInt32(PacketSelectortxtbx.Text);
             int CurrentIndex;
             int SelectedPacketNr;
-            //IsBtnPressed = true;
 
+            //Sets all packet markers to default color
             foreach (var i in ellipseList)
             {
                 i.Fill = new SolidColorBrush(Colors.Red);
             }
 
             SelectedPacketNr = Convert.ToInt32(packetList.Items[packetList.SelectedIndex]);
-            Debug.WriteLine(SelectedPacketNr);
+            //Debug.WriteLine(SelectedPacketNr);
             CurrentIndex = fileWindowHandler.N.IndexOf(SelectedPacketNr);
             OldIndex = CurrentIndex;
-            Debug.WriteLine("Contains");
-            Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue0}");
-            Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1}");
-            Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue2}");
-            Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue3}");
-            Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue4}");
-            Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue5}");
-            Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.BatteryCurrent}");
-            Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.BatteryVoltage}");
-            Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.LED1_Current}");
-            Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.LED2_Current}");
-            Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.LED3_Current}");
+
+            //Displays packet values to debug.
+            //Debug.WriteLine("Contains");
+            //Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue0}");
+            //Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1}");
+            //Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue2}");
+            //Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue3}");
+            //Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue4}");
+            //Debug.WriteLine($"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue5}");
+            //Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.BatteryCurrent}");
+            //Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.BatteryVoltage}");
+            //Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.LED1_Current}");
+            //Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.LED2_Current}");
+            //Debug.WriteLine($"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.LED3_Current}");
 
             dataDisplay.Text = "";
             dataDisplay.Text =
@@ -180,25 +233,7 @@ namespace MeadowSolar
                 $"LED2 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED2_Current} \n" +
                 $"LED3 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED3_Current} \n";
 
-            //if (IsBtnPressed == false)
-            {
-                ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Blue);
-                IsBtnPressed = true;
-            }
-            //else
-            {
-                //ellipseList[OldIndex].Fill = new SolidColorBrush(Colors.Red);
-                //OldIndex = CurrentIndex;
-            }
-            //if (OldIndex != CurrentIndex)
-            //{
-            //    ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Blue);
-            //}
-            //else
-            //{
-            //    ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Red);
-            //}
-            //OldIndex = CurrentIndex;
+            ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Blue);
         }
     }
 }

@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
-using System.Diagnostics;
 
 namespace MeadowSolar
 {
@@ -48,14 +47,14 @@ namespace MeadowSolar
             saver(solarCalc.ParseSolarData(newPacket), packetNR);
         }
 
-        //https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
         /// <summary>
         /// https://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
+        /// https://stackoverflow.com/questions/18192357/deserializing-json-object-array-with-json-net
         /// Writes a new object for each packet that contains the read analog value
         /// for the 6 analog inputs on the meadow board as well as voltages and currents
         /// </summary>
-        /// <param name="analogV"></param>  //Value of the analog reading
-        /// <param name="ye"></param>   //packetNR
+        /// <param name="analogV">Value of the analog reading</param>
+        /// <param name="packetNR">packetNR</param>
         private void saver(double[] analogV, int packetNR)
         {
             writer.WriteStartObject();
@@ -95,7 +94,6 @@ namespace MeadowSolar
         public void finish()
         {
             writer.WriteEndArray();
-            //writer.WriteEndObject();
             writer.Close();
         }
     }

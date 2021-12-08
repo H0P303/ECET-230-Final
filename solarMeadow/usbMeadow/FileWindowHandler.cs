@@ -47,7 +47,7 @@ namespace MeadowSolar
             //System.Diagnostics.Debug.WriteLine(JsonFile);
             V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
 
-            System.Diagnostics.Debug.WriteLine(V[0].Packet.PacketNR);
+            //System.Diagnostics.Debug.WriteLine(V[0].Packet.PacketNR);
             for (int i = 0; i < V.Count; i++)
             {
                 //System.Diagnostics.Debug.Write($"{V[i].Packet.PacketNR} \n");
@@ -57,7 +57,7 @@ namespace MeadowSolar
                 N.Add(V[i].Packet.PacketNR);
                 C_An0.Add(V[i].Packet.AnalogValue0);
             }
-            System.Diagnostics.Debug.WriteLine("Hello");
+            //System.Diagnostics.Debug.WriteLine("Hello");
         }
     }
 
