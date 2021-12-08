@@ -48,29 +48,31 @@ namespace MeadowSolar
         {
             int o = 0;
             List<Line> line = new List<Line>();
-            Line line2 = new Line();
+
             //Line[] ye = new Line[100];
             //Point startPoint = new Point();
             foreach (var i in Y)
             {
                 Debug.WriteLine($"Packet NR: {X[o]}, X-Pos: {o}, Y-Pos: {i}");
+                Line line2 = new Line();
                 //startPoint.X = o;
                 //startPoint.Y = i / 400;
 
-                //line2.X1 = o;
-                //line2.Y1 = 400 - (i / 40);
-                //line2.X2 = o + 1;
-                //line2.Y2 = 400 - (i / 40);
-                //line2.Stroke = new SolidColorBrush(Colors.Black);
-                //line2.StrokeThickness = 4;
-                //line.Add(line2);
+                line2.X1 = o;
+                line2.Y1 = 400 - (i / 40);
+                line2.X2 = o + 1;
+                line2.Y2 = 400 - (i / 40);
+                line2.Stroke = new SolidColorBrush(Colors.Black);
+                line2.StrokeThickness = 4;
+                line.Add(line2);
+                //GraphCanvas.Children.Add(line2);
                 o++;
             }
 
-            //foreach (var i in line)
-            //{
-            //    GraphCanvas.Children.Add(i);
-            //}
+            foreach (var i in line)
+            {
+                GraphCanvas.Children.Add(i);
+            }
 
             //GraphCanvas.Children.Add(line[2]);
             //GraphCanvas.Children.Add(line[3]);
