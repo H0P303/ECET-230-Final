@@ -57,6 +57,7 @@ namespace MeadowSolar
         {
             int PacketIterationTracker = 0;
             int CurrentXAxisPos = 0;
+            double tempXAxisPos = 0;
             double CurrentYAxisPos;
             int NextXAxisPos;
             int j = 0;
@@ -70,11 +71,12 @@ namespace MeadowSolar
                 Line line2 = new Line();
                 line2.X1 = CurrentXAxisPos;
                 CurrentYAxisPos = 400 - Map(0, 3300, 0, 400, i);
+                tempXAxisPos = Map(0, 400, 0, 400, i);
                 line2.Y1 = CurrentYAxisPos;
                 NextXAxisPos = CurrentXAxisPos + (400 / fileWindowHandler.N.Count);
                 if (NextXAxisPos == CurrentXAxisPos)
                 {
-                    NextXAxisPos++;
+                    NextXAxisPos = NextXAxisPos + 1;
                 }
                 line2.X2 = NextXAxisPos;
                 if ((PacketIterationTracker + 1) < fileWindowHandler.V.Count)
