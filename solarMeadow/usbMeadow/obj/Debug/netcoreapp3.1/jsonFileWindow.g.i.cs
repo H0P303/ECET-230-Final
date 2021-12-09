@@ -92,7 +92,7 @@ namespace MeadowSolar {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MeadowSolar;component/jsonfilewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MeadowSolar;V1.0.0.0;component/jsonfilewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\jsonFileWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
