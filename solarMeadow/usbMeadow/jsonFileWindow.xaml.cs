@@ -36,16 +36,31 @@ namespace MeadowSolar
         private void JsonWindowMain_Loaded(object sender, RoutedEventArgs e)
         {
             fileWindowHandler.SelectFile();
-            JsonWindowMain.Title = $"File Open: {fileWindowHandler.file}";
-            //dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
-
-            foreach (var i in fileWindowHandler.N)
+            //fileWindowHandler.deSerializer();
+            if (fileWindowHandler.fileSelected == true)
             {
-                //Debug.WriteLine($"Packet NR: {i}");
-                //dataDisplay.Text = $"{dataDisplay.Text + i}\n";
-                packetList.Items.Add(i);
+                //fileWindowHandler.deSerializer();
+                JsonWindowMain.Title = $"File Open: {fileWindowHandler.file}";
+                //dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
+
+                //if (fileWindowHandler.fileSelected == true)
+                //{
+                //    jsonFileWindow jsonFileWindow = new jsonFileWindow();
+                //    jsonFileWindow.Close();
+                //}
+                foreach (var i in fileWindowHandler.N)
+                {
+                    //Debug.WriteLine($"Packet NR: {i}");
+                    //dataDisplay.Text = $"{dataDisplay.Text + i}\n";
+                    packetList.Items.Add(i);
+                }
+                DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0);
             }
-            DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0);
+            else
+            {
+                jsonFileWindow jsonFileWindow = new jsonFileWindow();
+                jsonFileWindow.Close();
+            }
         }
 
         /// <summary>
@@ -57,10 +72,8 @@ namespace MeadowSolar
         {
             int PacketIterationTracker = 0;
             int CurrentXAxisPos = 0;
-            double tempXAxisPos = 0;
             double CurrentYAxisPos;
             int NextXAxisPos;
-            int j = 0;
 
             //Loops through each AN0 reading inside C_An0 list
             //Creates line beginning and ending at the current X and Y[i] point
@@ -71,9 +84,8 @@ namespace MeadowSolar
                 Line line2 = new Line();
                 line2.X1 = CurrentXAxisPos;
                 CurrentYAxisPos = 400 - Map(0, 3300, 0, 400, i);
-                tempXAxisPos = Map(0, 400, 0, 400, i);
                 line2.Y1 = CurrentYAxisPos;
-                NextXAxisPos = CurrentXAxisPos + (400 / fileWindowHandler.N.Count);
+                NextXAxisPos = CurrentXAxisPos + (Convert.ToInt32(GraphCanvas.Width) / fileWindowHandler.N.Count);
                 if (NextXAxisPos == CurrentXAxisPos)
                 {
                     NextXAxisPos = NextXAxisPos + 1;
@@ -97,46 +109,15 @@ namespace MeadowSolar
                 ellipsePlaceHolder.Fill = new SolidColorBrush(Colors.Red);
                 Canvas.SetZIndex(ellipsePlaceHolder, 999);
                 ellipseList.Add(ellipsePlaceHolder);
-                //Canvas.SetLeft(ellipsePlaceHolder, line2.X2 - (ellipsePlaceHolder.Width / 2));
-                //Canvas.SetTop(ellipsePlaceHolder, line2.Y2 - (ellipsePlaceHolder.Height / 2));
-                //GraphCanvas.Children.Add(ellipsePlaceHolder);
                 PacketIterationTracker++;
                 CurrentXAxisPos = NextXAxisPos;
             }
-
-            //Ellipse ellipsePlaceHolder2 = new Ellipse();
-            //ellipsePlaceHolder2.Width = 5;
-            //ellipsePlaceHolder2.Height = 5;
-            //ellipsePlaceHolder2.Fill = new SolidColorBrush(Colors.Red);
-            //Canvas.SetZIndex(ellipsePlaceHolder2, 999);
-            //ellipseList.Add(ellipsePlaceHolder2);
-
-            //Line linePlaceHolder = new Line();
-            //linePlaceHolder.X1 = CurrentXAxisPos + 1;
-            //linePlaceHolder.Y1 = CurrentYAxisPos + 1;
-            //linePlaceHolder.X2 = CurrentXAxisPos;
-            //linePlaceHolder.Y2 = CurrentYAxisPos;
-            //linePlaceHolder.Stroke = new SolidColorBrush(Colors.Black);
-            //linePlaceHolder.StrokeThickness = 2;
-            //lineList.Add(linePlaceHolder);
 
             //Draws each line object inside Line List
             foreach (var i in lineList)
             {
                 GraphCanvas.Children.Add(i);
             }
-            //Draws Each packet marker
-            //foreach (var i in ellipseList)
-            //{
-            //    Canvas.SetLeft(i, lineList[j].X1 - (i.Width / 2));
-            //    Canvas.SetTop(i, lineList[j].Y1 - (i.Height / 2));
-            //    GraphCanvas.Children.Add(i);
-            //    j++;
-            //}
-            //int ye = ellipseList.Count;
-            //Canvas.SetLeft(ellipseList[ye - 1], lineList[j - 1].X2 - (ellipseList[ye - 1].Width / 2));
-            //Canvas.SetTop(ellipseList[ye - 1], lineList[j - 1].Y2 - (ellipseList[ye - 1].Height / 2));
-            //GraphCanvas.Children.Add(ellipseList[ye]);
         }
 
         /// <summary>

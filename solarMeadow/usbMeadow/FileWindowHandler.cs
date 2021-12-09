@@ -2,13 +2,59 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows;
+using Newtonsoft.Json.Schema;
 
 namespace MeadowSolar
 {
     internal class FileWindowHandler
     {
         public string file { get; set; }
+        private string pFile;
         public string JsonFile { get; set; }
+        public bool fileSelected { get; set; }
+
+        //private string schemaJson = @"{
+        //    'description': 'A person',
+        //    'type': 'object',
+        //    'properties':
+        //    {
+        //        'name': {'type':'string'},
+        //        'hobbies': {
+        //            'type': 'array',
+        //            'items': {'type':'string'}
+        //        }
+        //    }
+        //}";
+
+        //private JSchema schema = JSchema.Parse(@"{{
+        //    '$schema': 'http://json-schema.org/draft-04/schema#',
+        //    'type': 'array',
+        //    'items': [
+        //      {
+        //        'type': 'object',
+        //        'properties': {
+        //          'Packet': {
+        //            'type': 'object',
+        //            'properties': {
+        //              'PacketNR': {'type': 'integer'},
+        //              'AnalogValue0': {'type': 'number'},
+        //              'AnalogValue1': {'type': 'number'},
+        //              'AnalogValue2': {'type': 'number'},
+        //              'AnalogValue3': {'type': 'number'},
+        //              'AnalogValue4': {'type': 'number'},
+        //              'AnalogValue5': {'type': 'number'},
+        //              'SolarVoltage': {'type': 'string'},
+        //              'BatteryVoltage': {'type': 'string'},
+        //              'BatteryCurrent': {'type': 'string'},
+        //              'LED1_Current': {'type': 'string'},
+        //              'LED2_Current': {'type': 'string'},
+        //              'LED3_Current': {'type': 'string'}
+        //            }
+        //        }
+        //      }
+        //    ]
+        //}}");
 
         public string[] NrPacketsAvailable = new string[100];
         public List<int> N = new List<int>();
@@ -30,8 +76,19 @@ namespace MeadowSolar
             {
                 FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open);
                 fs.Close();
-                file = openFileDialog1.FileName;
+                pFile = openFileDialog1.FileName;
+                file = pFile;
             }
+
+            if (File.Exists(file))
+            {
+                fileSelected = true;
+            }
+            else
+            {
+                fileSelected = false;
+            }
+
             deSerializer();
         }
 
@@ -43,21 +100,39 @@ namespace MeadowSolar
         /// </summary>
         public void deSerializer()
         {
-            JsonFile = File.ReadAllText(file);
-            //System.Diagnostics.Debug.WriteLine(JsonFile);
-            V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
-
-            //System.Diagnostics.Debug.WriteLine(V[0].Packet.PacketNR);
-            for (int i = 0; i < V.Count; i++)
+            //if (File.Exists(file))
             {
-                //System.Diagnostics.Debug.Write($"{V[i].Packet.PacketNR} \n");
-                //NrPacketsAvailable[i] = V[i].Packet.PacketNR.ToString();
-                //System.Diagnostics.Debug.Write($"{PacketsNRAvailable[i]} \n");
+                JsonFile = File.ReadAllText(pFile);
+                //System.Diagnostics.Debug.WriteLine(JsonFile);
+                V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
 
-                N.Add(V[i].Packet.PacketNR);
-                C_An0.Add(V[i].Packet.AnalogValue0);
+                //System.Diagnostics.Debug.WriteLine(V[0].Packet.PacketNR);
+                try
+                {
+                    for (int i = 0; i < V.Count; i++)
+                    {
+                        //System.Diagnostics.Debug.Write($"{V[i].Packet.PacketNR} \n");
+                        //NrPacketsAvailable[i] = V[i].Packet.PacketNR.ToString();
+                        //System.Diagnostics.Debug.Write($"{PacketsNRAvailable[i]} \n");
+
+                        N.Add(V[i].Packet.PacketNR);
+                        C_An0.Add(V[i].Packet.AnalogValue0);
+                    }
+                }
+                catch (System.NullReferenceException)
+                {
+                    MessageBox.Show("Select Valid Json File", "Invalid Json File", MessageBoxButton.OK);
+                    SelectFile();
+                }
+
+                //fileSelected = true;
             }
-            //System.Diagnostics.Debug.WriteLine("Hello");
+            //else
+            {
+                //jsonFileWindow jsonFileWindow = new jsonFileWindow();
+                //jsonFileWindow.Close();
+                //fileSelected = false;
+            }
         }
     }
 
