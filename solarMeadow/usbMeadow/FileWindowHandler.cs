@@ -100,7 +100,7 @@ namespace MeadowSolar
         /// </summary>
         public void deSerializer()
         {
-            //if (File.Exists(file))
+            if (File.Exists(file))
             {
                 JsonFile = File.ReadAllText(pFile);
                 //System.Diagnostics.Debug.WriteLine(JsonFile);
@@ -127,11 +127,13 @@ namespace MeadowSolar
 
                 //fileSelected = true;
             }
-            //else
+            else
             {
                 //jsonFileWindow jsonFileWindow = new jsonFileWindow();
                 //jsonFileWindow.Close();
                 //fileSelected = false;
+                MessageBox.Show("Select file to continue", "File not selected", MessageBoxButton.OK);
+                SelectFile();
             }
         }
     }
