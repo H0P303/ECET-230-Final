@@ -229,13 +229,6 @@ namespace usbMeadow
         {
             jsonFileWindow FileWindow = new jsonFileWindow();
             FileWindow.Show();
-            //FileWindowHandler fileWindowHandler = new FileWindowHandler();
-            //fileWindowHandler.SelectFile();
-            //if (fileWindowHandler.fileSelected == true)
-            //{
-            //    jsonFileWindow FileWindow = new jsonFileWindow();
-            //    FileWindow.Show();
-            //}
         }
 
         /// <summary>

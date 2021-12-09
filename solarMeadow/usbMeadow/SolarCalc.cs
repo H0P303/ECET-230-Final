@@ -20,8 +20,6 @@ namespace MeadowSolar
             ResitorValue = 100.0;
         }
 
-        //Method
-
         public double[] ParseSolarData(string newPacket)
         {
             for (int i = 0; i < 6; i++)

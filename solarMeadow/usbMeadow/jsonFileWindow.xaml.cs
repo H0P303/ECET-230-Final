@@ -37,30 +37,21 @@ namespace MeadowSolar
         {
             fileWindowHandler.SelectFile();
             //fileWindowHandler.deSerializer();
-            if (fileWindowHandler.fileSelected == true)
-            {
-                //fileWindowHandler.deSerializer();
-                JsonWindowMain.Title = $"File Open: {fileWindowHandler.file}";
-                //dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
+            JsonWindowMain.Title = $"File Open: {fileWindowHandler.file}";
+            //dataDisplay.Text = fileWindowHandler.V[0].Packet.PacketNR.ToString();
 
-                //if (fileWindowHandler.fileSelected == true)
-                //{
-                //    jsonFileWindow jsonFileWindow = new jsonFileWindow();
-                //    jsonFileWindow.Close();
-                //}
-                foreach (var i in fileWindowHandler.N)
-                {
-                    //Debug.WriteLine($"Packet NR: {i}");
-                    //dataDisplay.Text = $"{dataDisplay.Text + i}\n";
-                    packetList.Items.Add(i);
-                }
-                DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An0);
-            }
-            else
+            //if (fileWindowHandler.fileSelected == true)
+            //{
+            //    jsonFileWindow jsonFileWindow = new jsonFileWindow();
+            //    jsonFileWindow.Close();
+            //}
+            foreach (var i in fileWindowHandler.N)
             {
-                jsonFileWindow jsonFileWindow = new jsonFileWindow();
-                jsonFileWindow.Close();
+                //Debug.WriteLine($"Packet NR: {i}");
+                //dataDisplay.Text = $"{dataDisplay.Text + i}\n";
+                packetList.Items.Add(i);
             }
+            DrawGraph(fileWindowHandler.N, fileWindowHandler.C_An3);
         }
 
         /// <summary>
@@ -75,9 +66,9 @@ namespace MeadowSolar
             double CurrentYAxisPos;
             int NextXAxisPos;
 
-            //Loops through each AN0 reading inside C_An0 list
+            //Loops through each AN0 reading inside C_An3 list
             //Creates line beginning and ending at the current X and Y[i] point
-            //And ends at X+1 and Y[i+1](Next An0 reading of list)
+            //And ends at X+1 and Y[i+1](Next An3 reading of list)
             foreach (var i in Y)
             {
                 //Debug.WriteLine($"Packet NR: {X[PacketIterationTracker]}, X-Pos: {PacketIterationTracker}, Y-Pos: {i}");
@@ -93,7 +84,7 @@ namespace MeadowSolar
                 line2.X2 = NextXAxisPos;
                 if ((PacketIterationTracker + 1) < fileWindowHandler.V.Count)
                 {
-                    line2.Y2 = 400 - Map(0, 3300, 0, 400, fileWindowHandler.V[PacketIterationTracker + 1].Packet.AnalogValue0);
+                    line2.Y2 = 400 - Map(0, 3300, 0, 400, fileWindowHandler.V[PacketIterationTracker + 1].Packet.AnalogValue3);
                 }
                 else
                 {
@@ -113,7 +104,7 @@ namespace MeadowSolar
                 CurrentXAxisPos = NextXAxisPos;
             }
 
-            //Draws each line object inside Line List
+            //Draws each line object inside Line List to make a graph
             foreach (var i in lineList)
             {
                 GraphCanvas.Children.Add(i);
@@ -173,17 +164,19 @@ namespace MeadowSolar
             dataDisplay.Text =
                 $"An0: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue0} \n" +
                 $"An1: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1} \n" +
-                $"An2: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1} \n" +
-                $"An3: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1} \n" +
-                $"An4: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1} \n" +
-                $"An5: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue1} \n" +
+                $"An2: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue2} \n" +
+                $"An3: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue3} \n" +
+                $"An4: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue4} \n" +
+                $"An5: {fileWindowHandler.V[CurrentIndex].Packet.AnalogValue5} \n" +
                 $"Bat Current: {fileWindowHandler.V[CurrentIndex].Packet.BatteryCurrent} \n" +
                 $"Bat Voltage: {fileWindowHandler.V[CurrentIndex].Packet.BatteryVoltage} \n" +
                 $"LED1 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED1_Current} \n" +
                 $"LED2 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED2_Current} \n" +
                 $"LED3 Current: {fileWindowHandler.V[CurrentIndex].Packet.LED3_Current} \n";
 
+            //Draws a circle at the at the selected packet location on the graph
             ellipseList[CurrentIndex].Fill = new SolidColorBrush(Colors.Red);
+            //Centers the circle on the line
             Canvas.SetLeft(ellipseList[CurrentIndex], lineList[CurrentIndex].X1 - (ellipseList[CurrentIndex].Width / 2));
             Canvas.SetTop(ellipseList[CurrentIndex], lineList[CurrentIndex].Y1 - (ellipseList[CurrentIndex].Height / 2));
             GraphCanvas.Children.Add(ellipseList[CurrentIndex]);

@@ -25,7 +25,7 @@
         </StackPanel>
         <StackPanel Width="650" Margin="50,0,0,0" Orientation="Vertical">
             <StackPanel Width="650" Margin="0,10,0,0" Orientation="Horizontal">
-                <StackPanel VerticalAlignment="Center" Height="50" RenderTransformOrigin="0.5,0.5">
+                <StackPanel VerticalAlignment="Center" Height="30" RenderTransformOrigin="0.5,0.5" Margin="-50,0,0,0">
                     <StackPanel.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
@@ -34,7 +34,7 @@
                             <TranslateTransform />
                         </TransformGroup>
                     </StackPanel.RenderTransform>
-                    <Label Margin="-10,0,0,0"  Content="Analog 0" Width="90" Height="35" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="Bold">
+                    <Label Margin="-10,0,0,0"  Content="Solar Panel Voltage" Width="190" Height="35" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="Bold">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform />
@@ -45,7 +45,7 @@
                         </Label.RenderTransform>
                     </Label>
                 </StackPanel>
-                <Canvas Height="400" Width="500" x:Name="GraphCanvas" Background="White" OpacityMask="White" />
+                <Canvas Height="400" Width="500" x:Name="GraphCanvas" Background="White" OpacityMask="White" Margin="-20,10,0,0" />
                 <StackPanel>
                 </StackPanel>
             </StackPanel>

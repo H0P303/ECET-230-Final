@@ -14,51 +14,9 @@ namespace MeadowSolar
         public string JsonFile { get; set; }
         public bool fileSelected { get; set; }
 
-        //private string schemaJson = @"{
-        //    'description': 'A person',
-        //    'type': 'object',
-        //    'properties':
-        //    {
-        //        'name': {'type':'string'},
-        //        'hobbies': {
-        //            'type': 'array',
-        //            'items': {'type':'string'}
-        //        }
-        //    }
-        //}";
-
-        //private JSchema schema = JSchema.Parse(@"{{
-        //    '$schema': 'http://json-schema.org/draft-04/schema#',
-        //    'type': 'array',
-        //    'items': [
-        //      {
-        //        'type': 'object',
-        //        'properties': {
-        //          'Packet': {
-        //            'type': 'object',
-        //            'properties': {
-        //              'PacketNR': {'type': 'integer'},
-        //              'AnalogValue0': {'type': 'number'},
-        //              'AnalogValue1': {'type': 'number'},
-        //              'AnalogValue2': {'type': 'number'},
-        //              'AnalogValue3': {'type': 'number'},
-        //              'AnalogValue4': {'type': 'number'},
-        //              'AnalogValue5': {'type': 'number'},
-        //              'SolarVoltage': {'type': 'string'},
-        //              'BatteryVoltage': {'type': 'string'},
-        //              'BatteryCurrent': {'type': 'string'},
-        //              'LED1_Current': {'type': 'string'},
-        //              'LED2_Current': {'type': 'string'},
-        //              'LED3_Current': {'type': 'string'}
-        //            }
-        //        }
-        //      }
-        //    ]
-        //}}");
-
         public string[] NrPacketsAvailable = new string[100];
         public List<int> N = new List<int>();
-        public List<double> C_An0 = new List<double>();
+        public List<double> C_An3 = new List<double>();
         public List<Packets> V { get; set; }
 
         /// <summary>
@@ -102,9 +60,18 @@ namespace MeadowSolar
         {
             if (File.Exists(file))
             {
-                JsonFile = File.ReadAllText(pFile);
-                //System.Diagnostics.Debug.WriteLine(JsonFile);
-                V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
+                try
+                {
+                    JsonFile = File.ReadAllText(pFile);
+                    //System.Diagnostics.Debug.WriteLine(JsonFile);
+                    V = JsonConvert.DeserializeObject<List<Packets>>(JsonFile); //DeSerializes the Json Object to V
+                }
+                //If selected file is not valid prompt user to select a new one
+                catch (Newtonsoft.Json.JsonSerializationException e)
+                {
+                    MessageBox.Show($"Select Valid Json File \n{e.Message}", "Invalid Json File", MessageBoxButton.OK);
+                    SelectFile();
+                }
 
                 //System.Diagnostics.Debug.WriteLine(V[0].Packet.PacketNR);
                 try
@@ -116,22 +83,18 @@ namespace MeadowSolar
                         //System.Diagnostics.Debug.Write($"{PacketsNRAvailable[i]} \n");
 
                         N.Add(V[i].Packet.PacketNR);
-                        C_An0.Add(V[i].Packet.AnalogValue0);
+                        C_An3.Add(V[i].Packet.AnalogValue3);
                     }
                 }
+                //If selected file is not valid prompt user to select a new one
                 catch (System.NullReferenceException)
                 {
                     MessageBox.Show("Select Valid Json File", "Invalid Json File", MessageBoxButton.OK);
                     SelectFile();
                 }
-
-                //fileSelected = true;
             }
             else
             {
-                //jsonFileWindow jsonFileWindow = new jsonFileWindow();
-                //jsonFileWindow.Close();
-                //fileSelected = false;
                 MessageBox.Show("Select file to continue", "File not selected", MessageBoxButton.OK);
                 SelectFile();
             }
