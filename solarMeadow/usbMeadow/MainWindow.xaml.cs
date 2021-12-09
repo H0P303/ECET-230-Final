@@ -1,5 +1,6 @@
 ﻿using MeadowSolar;
 using System;
+using System.ComponentModel;
 using System.IO.Ports;
 using System.Text;
 using System.Windows;
@@ -21,10 +22,14 @@ namespace usbMeadow
         private SerialPort serialPort = new SerialPort();
         private int newPacketNumber = 0, checkSumError = 0, oldPacketNumber = -1, packetRollover = 0, lostPacketCount = 0, CheckSum;
         private bool isSaveLocationSelected = false;
+        private bool showDebug = false;
 
         private StringBuilder stringBuilderSend = new StringBuilder("###1111196");
         private FileSave fileSave = new FileSave();
         private SolarCalc solarCalc = new SolarCalc();
+        //private MainWindow mainWindow = new MainWindow();
+
+        //private MainWindow mainWindow = new MainWindow();
 
         public MainWindow()
         {
@@ -246,6 +251,22 @@ namespace usbMeadow
             else
             {
                 e.Cancel = false;
+            }
+        }
+
+        private void showDebugChk_Click(object sender, RoutedEventArgs e)
+        {
+            if (!showDebug)
+            {
+                showDebugChk.Content = "Show Debug";
+                windowMain.Width = 230;
+                showDebug = true;
+            }
+            else
+            {
+                windowMain.Width = 800;
+                showDebugChk.Content = "Hide Debug";
+                showDebug = false;
             }
         }
 

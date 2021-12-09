@@ -1,4 +1,5 @@
 ﻿<Window x:Class="usbMeadow.MainWindow"
+        x:Name="windowMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="530" Width="800" Closing="Window_Closing">
     <StackPanel Orientation="Horizontal">
-        <StackPanel>
+        <StackPanel Margin="10,0,0,0">
             <StackPanel>
                 <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Height="50" Width="Auto">
                     <Button Margin="0,0,10,0" x:Name="btnOpenClose" Height="25" Width="50" HorizontalAlignment="Left" Content="Open" Click="btnOpenClose_Click" />
@@ -46,6 +47,7 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
+            <Button Content="Show Debug" Margin="0,10,0,0" x:Name="showDebugChk" Click="showDebugChk_Click" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Width="605">
