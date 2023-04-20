@@ -3,6 +3,8 @@
 
 ### Description:
 
+Reads datapoints such as current, voltage, battery charge etc, from a miniature solar farm. User recorded data is stored into a .json file. This file can later be opened and graphed showing the change of datapoint values over time.
+
 Final Project for ECET-230-2021, By Alexander O
 
 
